@@ -8,25 +8,21 @@ const koreanCoins = [
     value: 10,
     color: "bg-amber-100 border-amber-300",
     textColor: "text-amber-800",
-    iconColor: "from-amber-300 to-amber-500 border-amber-600 text-amber-900",
   },
   {
     value: 50,
     color: "bg-orange-100 border-orange-300",
     textColor: "text-orange-800",
-    iconColor: "from-orange-300 to-orange-500 border-orange-600 text-orange-900",
   },
   {
     value: 100,
     color: "bg-red-100 border-red-300",
     textColor: "text-red-800",
-    iconColor: "from-red-300 to-red-500 border-red-600 text-red-900",
   },
   {
     value: 500,
     color: "bg-purple-100 border-purple-300",
     textColor: "text-purple-800",
-    iconColor: "from-purple-300 to-purple-500 border-purple-600 text-purple-900",
   },
 ]
 
@@ -36,7 +32,11 @@ export default function CoinCounting() {
     50: 0,
     100: 0,
     500: 0,
-  })
+  });
+
+  const [coinside, setCoinside] = useState<'front'|'back'>('front');
+
+  const flipCoin = () => setCoinside(v => v === 'front' ? 'back' : 'front');
 
   const updateCoinCount = (coinValue: number, change: number) => {
     setCoinCounts((prev) => ({
@@ -57,7 +57,6 @@ export default function CoinCounting() {
         {/* Header */}
         <div className="text-center mb-6">
           <h1 className="text-3xl font-bold text-gray-800 mb-2">동전 세기 🪙</h1>
-          <p className="text-lg text-gray-600">Korean Coin Counting</p>
         </div>
 
         {/* Coin Cards - Horizontally Scrollable */}
@@ -66,16 +65,13 @@ export default function CoinCounting() {
             {koreanCoins.map((coin) => (
               <Card key={coin.value} className={`${coin.color} border-2 w-72 flex-shrink-0 shadow-lg`}>
                 <CardContent className="p-6">
-                  {/* Mixed Coin Image and Title */}
                   <div className="flex items-center justify-center gap-3 mb-4">
-                    <div
-                      className={`w-16 h-16 rounded-full bg-gradient-to-br ${coin.iconColor} border-4 flex items-center justify-center shadow-lg`}
-                    >
-                      <span className="text-lg font-bold">₩</span>
-                    </div>
-                    <div className={`${coin.textColor}`}>
-                      <h3 className="text-2xl font-bold">{coin.value}원</h3>
-                    </div>
+                    <img
+                      key={coin.value}
+                      className={`w-20 h-20 flex items-center justify-center`}
+                      src={`/images/money/coin_${coin.value}_${coinside}.png`}
+                      onClick={flipCoin}
+                    />
                   </div>
 
                   {/* Counter */}
@@ -91,7 +87,7 @@ export default function CoinCounting() {
                     </Button>
 
                     <div className="bg-white rounded-lg px-4 py-2 min-w-[60px] text-center border-2 border-gray-200">
-                      <span className="text-2xl font-bold text-gray-800">{coinCounts[coin.value]}</span>
+                      <input type="number" className="w-16 text-2xl text-center font-bold text-gray-800 [&::-webkit-inner-spin-button]:appearance-none" value={coinCounts[coin.value]} />
                     </div>
 
                     <Button
@@ -108,16 +104,13 @@ export default function CoinCounting() {
                   <div className="mb-4">
                     <div className="flex flex-wrap gap-1 justify-center min-h-[40px] items-center">
                       {Array.from({ length: coinCounts[coin.value] }, (_, i) => (
-                        <div
+                        <img
                           key={i}
-                          className={`w-6 h-6 rounded-full bg-gradient-to-br ${coin.iconColor} border-2 flex items-center justify-center text-xs font-bold`}
-                        >
-                          ₩
-                        </div>
+                          className={`w-6 h-6 flex items-center justify-center`}
+                          src={`/images/money/coin_${coin.value}_${'front'}.png`}
+                          onClick={flipCoin}
+                        />
                       ))}
-                      {/*{coinCounts[coin.value] > 8 && (*/}
-                      {/*  <div className="text-sm font-semibold text-gray-600">+{coinCounts[coin.value] - 8}</div>*/}
-                      {/*)}*/}
                     </div>
                   </div>
 
@@ -135,24 +128,23 @@ export default function CoinCounting() {
         {/* Summary Section */}
         <Card className="bg-white border-2 border-green-300 shadow-xl">
           <CardContent className="p-8">
-            <div className="grid md:grid-cols-2 gap-8 items-center">
+            <div className="grid items-center">
               {/* Summary Stats with Graphical Coins */}
               <div className="space-y-6">
-                <h2 className="text-2xl font-bold text-gray-800 text-center md:text-left">총합 Summary</h2>
+                <h2 className="text-2xl font-bold text-gray-800 text-center md:text-left">총합</h2>
 
                 {/* Graphical representation of all coins */}
                 <div className="bg-gray-50 rounded-lg p-4 border-2 border-gray-200">
-                  <div className="text-gray-600 text-sm font-medium mb-3">All Your Coins</div>
+                  <div className="text-gray-600 text-sm font-medium mb-3">전체 동전</div>
                   <div className="flex flex-wrap gap-2 min-h-[60px] items-center justify-center">
                     {koreanCoins.map((coin) =>
                       Array.from({ length: coinCounts[coin.value] }, (_, i) => (
-                        <div
-                          key={`${coin.value}-${i}`}
-                          className={`w-8 h-8 rounded-full bg-gradient-to-br ${coin.iconColor} border-2 flex items-center justify-center text-xs font-bold shadow-sm`}
-                          title={`${coin.value}원`}
-                        >
-                          ₩
-                        </div>
+                        <img
+                          key={i}
+                          className={`w-8 h-8 flex items-center justify-center`}
+                          src={`/images/money/coin_${coin.value}_${'front'}.png`}
+                          onClick={flipCoin}
+                        />
                       )),
                     )}
                     {totalCoins === 0 && (
@@ -174,33 +166,33 @@ export default function CoinCounting() {
                 </div>
               </div>
 
-              {/* Coin Jar */}
-              <div className="flex justify-center">
-                <div className="relative">
-                  <div className="w-48 h-56 bg-gradient-to-b from-blue-100 to-blue-200 rounded-t-full border-4 border-blue-400 flex items-end justify-center pb-8 shadow-lg">
-                    <Coins className="w-16 h-16 text-blue-600" />
-                  </div>
-                  <div className="w-52 h-8 bg-blue-300 rounded-full border-4 border-blue-400 -mt-2 relative z-10 shadow-lg"></div>
-                  <div className="text-center mt-4">
-                    <span className="text-lg font-bold text-gray-700">동전 항아리</span>
-                  </div>
+               {/*Coin Jar */}
+              {/*<div className="flex justify-center">*/}
+              {/*  <div className="relative">*/}
+              {/*    <div className="w-48 h-56 bg-gradient-to-b from-blue-100 to-blue-200 rounded-t-full border-4 border-blue-400 flex items-end justify-center pb-8 shadow-lg">*/}
+              {/*      <Coins className="w-16 h-16 text-blue-600" />*/}
+              {/*    </div>*/}
+              {/*    <div className="w-52 h-8 bg-blue-300 rounded-full border-4 border-blue-400 -mt-2 relative z-10 shadow-lg"></div>*/}
+              {/*    <div className="text-center mt-4">*/}
+              {/*      <span className="text-lg font-bold text-gray-700">동전 항아리</span>*/}
+              {/*    </div>*/}
 
-                  {/* Floating coins animation */}
-                  {totalCoins > 0 && (
-                    <div className="absolute top-4 left-1/2 transform -translate-x-1/2">
-                      <div className="flex gap-1 animate-bounce">
-                        {Array.from({ length: Math.min(3, totalCoins) }, (_, i) => (
-                          <div
-                            key={i}
-                            className="w-4 h-4 rounded-full bg-yellow-400 border border-yellow-600"
-                            style={{ animationDelay: `${i * 0.2}s` }}
-                          />
-                        ))}
-                      </div>
-                    </div>
-                  )}
-                </div>
-              </div>
+              {/*    /!* Floating coins animation *!/*/}
+              {/*    {totalCoins > 0 && (*/}
+              {/*      <div className="absolute top-4 left-1/2 transform -translate-x-1/2">*/}
+              {/*        <div className="flex gap-1 animate-bounce">*/}
+              {/*          {Array.from({ length: Math.min(3, totalCoins) }, (_, i) => (*/}
+              {/*            <div*/}
+              {/*              key={i}*/}
+              {/*              className="w-4 h-4 rounded-full bg-yellow-400 border border-yellow-600"*/}
+              {/*              style={{ animationDelay: `${i * 0.2}s` }}*/}
+              {/*            />*/}
+              {/*          ))}*/}
+              {/*        </div>*/}
+              {/*      </div>*/}
+              {/*    )}*/}
+              {/*  </div>*/}
+              {/*</div>*/}
             </div>
           </CardContent>
         </Card>

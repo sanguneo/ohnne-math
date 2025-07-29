@@ -1,7 +1,8 @@
 "use client"
 
-import { card, CardContent, CardHeader, CardTitle } from "~/components/ui/card"
-import { button } from "~/components/ui/button"
+import { useNavigate } from "react-router";
+import { Card, CardContent, CardHeader, CardTitle } from "~/components/ui/card"
+import { Button } from "~/components/ui/button"
 import { Coins, Calculator, Clock, Palette, BookOpen, Puzzle, Music, Globe, Star, Heart } from "lucide-react"
 
 const toyPages = [
@@ -96,11 +97,10 @@ const toyPages = [
 ]
 
 export default function EducationalToysHub() {
+  const navigate  = useNavigate();
   const handleToyClick = (toy: (typeof toyPages)[0]) => {
     if (toy.available) {
-      // In a real app, you would navigate to the toy page
-      // For now, we'll just show an alert
-      window.location.href = toy.path
+      navigate(toy.path);
     }
   }
 
@@ -126,7 +126,7 @@ export default function EducationalToysHub() {
           {toyPages.map((toy) => {
             const IconComponent = toy.icon
             return (
-              <card
+              <Card
                 key={toy.id}
                 className={`${toy.color} border-2 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 cursor-pointer ${
                   !toy.available ? "opacity-60" : ""
@@ -150,7 +150,7 @@ export default function EducationalToysHub() {
                   <p className="text-sm text-gray-700 text-center mb-4 min-h-[40px]">{toy.description}</p>
 
                   {toy.available ? (
-                    <button
+                    <Button
                       className="w-full bg-white/80 text-gray-800 hover:bg-white border-2 border-gray-200 font-semibold"
                       onClick={(e) => {
                         e.stopPropagation()
@@ -158,14 +158,14 @@ export default function EducationalToysHub() {
                       }}
                     >
                       놀러가기 Play Now! 🎮
-                    </button>
+                    </Button>
                   ) : (
-                    <button disabled className="w-full bg-gray-200 text-gray-500 cursor-not-allowed">
+                    <Button disabled className="w-full bg-gray-200 text-gray-500 cursor-not-allowed">
                       곧 출시 Coming Soon! ⏰
-                    </button>
+                    </Button>
                   )}
                 </CardContent>
-              </card>
+              </Card>
             )
           })}
         </div>
