@@ -183,9 +183,9 @@ export default function TimeLearningApp() {
           </Card>
         ) : (
           /* Question Screen */
-          <div className="space-y-6">
+          <div className="space-y-6 grid grid-cols-2 gap-2">
             {/* Clock Display */}
-            <Card className="bg-white border-2 border-blue-300 shadow-lg">
+            <Card className="bg-white border-none shadow-none">
               <CardContent className="p-8">
                 <div className="text-center mb-6">
                   <h2 className="text-2xl font-bold text-gray-800 mb-2">{currentQuestion.questionText}</h2>
@@ -201,7 +201,7 @@ export default function TimeLearningApp() {
             </Card>
 
             {/* Answer Selection */}
-            <Card className="bg-white border-2 border-green-300 shadow-lg">
+            <Card className="bg-white  border-none shadow-none">
               <CardContent className="p-6">
                 <h3 className="text-xl font-bold text-gray-800 text-center mb-6">시간을 선택하세요</h3>
 
