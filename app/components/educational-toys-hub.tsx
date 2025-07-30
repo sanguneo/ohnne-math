@@ -3,14 +3,23 @@
 import { useNavigate } from "react-router";
 import { Card, CardContent, CardHeader, CardTitle } from "~/components/ui/card"
 import { Button } from "~/components/ui/button"
-import { Coins, Calculator, Clock, Palette, BookOpen, Puzzle, Music, Globe, Star, Heart } from "lucide-react"
+import { Coins, Calculator, Network, Clock, Palette, BookOpen, Puzzle, Music, Globe, Star, Heart } from "lucide-react"
 
 const toyPages = [
   {
+    id: "splitting-combining",
+    title: "가르기와 모으기 🔢",
+    description: "가르기와 모으기로 숫자 연산을 배워요",
+    icon: Network,
+    color: "bg-gradient-to-br from-blue-100 to-cyan-100 border-blue-300",
+    iconColor: "text-blue-600",
+    available: true,
+    path: "/splitting-combining",
+  },
+  {
     id: "coin-counting",
     title: "동전 세기",
-    subtitle: "Coin Counting",
-    description: "Learn Korean coin values through interactive counting",
+    description: "동전을 이용해 10단위 더하기를 배워요",
     icon: Coins,
     color: "bg-gradient-to-br from-yellow-100 to-amber-100 border-yellow-300",
     iconColor: "text-yellow-600",
@@ -18,26 +27,24 @@ const toyPages = [
     path: "/coin-counting",
   },
   {
+    id: "time-learning",
+    title: "시간 배우기",
+    description: "시계 종류에 따라 시간을 배워요",
+    icon: Clock,
+    color: "bg-gradient-to-br from-green-100 to-emerald-100 border-green-300",
+    iconColor: "text-green-600",
+    available: true,
+    path: "/time-learning",
+  },
+  {
     id: "math-basics",
     title: "기초 수학",
-    subtitle: "Math Basics",
     description: "Addition, subtraction, and number recognition games",
     icon: Calculator,
     color: "bg-gradient-to-br from-blue-100 to-cyan-100 border-blue-300",
     iconColor: "text-blue-600",
     available: false,
     path: "/math-basics",
-  },
-  {
-    id: "time-learning",
-    title: "시간 배우기",
-    subtitle: "Time Learning",
-    description: "Interactive clock to learn telling time",
-    icon: Clock,
-    color: "bg-gradient-to-br from-green-100 to-emerald-100 border-green-300",
-    iconColor: "text-green-600",
-    available: false,
-    path: "/time-learning",
   },
   {
     id: "color-mixing",
