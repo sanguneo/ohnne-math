@@ -6,5 +6,6 @@ export default [
   route('splitting-combining', "pages/splitting-combining.tsx"),
   route('time-learning', "pages/time-learning.tsx"),
   route('add-sub', "pages/add-sub.tsx"),
+  route('shape-transform', "pages/shape-transform.tsx"),
 
 ] satisfies RouteConfig;
