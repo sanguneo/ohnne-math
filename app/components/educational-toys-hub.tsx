@@ -38,6 +38,16 @@ const toyPages = [
   },
   {
     id: "math-basics",
+    title: "덧셈뺄셈",
+    description: "Addition, subtraction, and number recognition games",
+    icon: Calculator,
+    color: "bg-gradient-to-br from-blue-100 to-cyan-100 border-blue-300",
+    iconColor: "text-blue-600",
+    available: true,
+    path: "/add-sub",
+  },
+  {
+    id: "math-basics",
     title: "기초 수학",
     description: "Addition, subtraction, and number recognition games",
     icon: Calculator,

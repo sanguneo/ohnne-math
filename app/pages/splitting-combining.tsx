@@ -325,7 +325,7 @@ export default function SplittingCombiningApp() {
         </Card>
       ) : (
         /* Problem Screen */
-        <div className="space-y-6">
+        <div className="space-y-6 grid grid-cols-2 gap-2">
           {/* Question Card */}
           <Card className="bg-white border-none shadow-none">
             <CardContent className="p-8">
@@ -345,7 +345,7 @@ export default function SplittingCombiningApp() {
               <h3 className="text-xl font-bold text-gray-800 text-center mb-4">답을 선택하세요</h3>
 
               <div className="grid grid-cols-8 gap-3 mb-6">
-                {Array.from({length: 24}, (_, i) => i + 1).map((number) => (
+                {Array.from({length: difficulty * 6}, (_, i) => i + 1).map((number) => (
                   <Button
                     key={number}
                     onClick={() => handleNumberSelect(number)}
