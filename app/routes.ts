@@ -7,5 +7,6 @@ export default [
   route('time-learning', "pages/time-learning.tsx"),
   route('add-sub', "pages/add-sub.tsx"),
   route('shape-transform', "pages/shape-transform.tsx"),
+  route('nonogram', "pages/nonogram.tsx"),
 
 ] satisfies RouteConfig;

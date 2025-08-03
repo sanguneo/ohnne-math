@@ -3,7 +3,20 @@
 import { useNavigate } from "react-router";
 import { Card, CardContent, CardHeader, CardTitle } from "~/components/ui/card"
 import { Button } from "~/components/ui/button"
-import { Coins, Calculator, Network, Clock, Palette, BookOpen, Puzzle, Music, Globe, Star, Heart } from "lucide-react"
+import {
+  Coins,
+  Calculator,
+  Network,
+  Clock,
+  Palette,
+  BookOpen,
+  Puzzle,
+  Music,
+  Globe,
+  Star,
+  Heart,
+  Grid3X3
+} from "lucide-react"
 
 const toyPages = [
   {
@@ -66,6 +79,17 @@ const toyPages = [
     iconColor: "text-blue-600",
     available: false,
     path: "/math-basics",
+  },
+  {
+    id: "nonogram",
+    title: "노노그램",
+    subtitle: "Nonogram",
+    description: "Complete pictures using number clues in grid puzzles",
+    icon: Grid3X3,
+    color: "bg-gradient-to-br from-indigo-100 to-purple-100 border-indigo-300",
+    iconColor: "text-indigo-600",
+    available: true,
+    path: "/nonogram",
   },
   {
     id: "color-mixing",
