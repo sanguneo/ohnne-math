@@ -282,7 +282,7 @@ export default function NonogramApp() {
                                     </div>
                                 )}
 
-                                <div className="flex gap-2">
+                                <div className="flex gap-2 flex-wrap">
                                     <Button onClick={resetGrid} variant="outline" className="bg-white/80 hover:bg-white">
                                         <RotateCcw className="w-4 h-4 mr-2" />
                                         초기화
