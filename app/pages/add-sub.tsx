@@ -163,16 +163,16 @@ export default function MathBasicsApp() {
       {problems.length === 0 ? (
           /* Start Screen */
           <Card className="bg-white border-2 border-orange-300 shadow-xl">
-            <CardContent className="p-12 text-center">
+            <CardContent className="p-6 md:p-12 text-center">
               <div className="mb-8">
-                <Calculator className="w-24 h-24 mx-auto text-orange-500 mb-4" />
-                <h2 className="text-3xl font-bold text-gray-800 mb-4">덧셈뺄셈</h2>
-                <p className="text-lg text-gray-600 mb-2">덧셈과 뺄셈을 연습해보세요!</p>
+                <Calculator className="w-20 h-20 md:w-24 md:h-24 mx-auto text-orange-500 mb-4" />
+                <h2 className="text-2xl md:text-3xl font-bold text-gray-800 mb-4">덧셈뺄셈</h2>
+                <p className="text-base md:text-lg text-gray-600 mb-2">덧셈과 뺄셈을 연습해보세요!</p>
               </div>
 
               {/* 난이도 선택 */}
               <div className="mb-8">
-                <h3 className="text-xl font-bold text-gray-800 mb-4">난이도 선택</h3>
+                <h3 className="text-lg md:text-xl font-bold text-gray-800 mb-4">난이도 선택</h3>
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
                   {Object.entries(difficultyConfigs).map(([key, config]) => (
                       <div
@@ -288,7 +288,7 @@ export default function MathBasicsApp() {
             </Card>
 
             {/* Problems Grid */}
-            <div className="grid grid-cols-2 gap-3">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
               {problems.map((problem) => (
                   <Card
                       key={problem.id}

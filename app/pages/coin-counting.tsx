@@ -56,7 +56,7 @@ export default function CoinCounting() {
       <div className="max-w-4xl mx-auto">
         {/* Header */}
         <div className="text-center mb-6">
-          <h1 className="text-3xl font-bold text-gray-800 mb-2">동전 세기 🪙</h1>
+          <h1 className="text-2xl md:text-3xl font-bold text-gray-800 mb-2">동전 세기 🪙</h1>
         </div>
 
         {/* Coin Cards - Horizontally Scrollable */}
@@ -127,7 +127,7 @@ export default function CoinCounting() {
 
         {/* Summary Section */}
         <Card className="bg-white border-2 border-green-300 shadow-xl">
-          <CardContent className="p-8">
+          <CardContent className="p-6 md:p-8">
             <div className="grid items-center">
               {/* Summary Stats with Graphical Coins */}
               <div className="space-y-6">
@@ -153,15 +153,15 @@ export default function CoinCounting() {
                   </div>
                 </div>
 
-                <div className="grid grid-cols-2 gap-4">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div className="bg-blue-50 rounded-lg p-4 border-2 border-blue-200">
                     <div className="text-blue-600 text-sm font-medium">Total Coins</div>
-                    <div className="text-3xl font-bold text-blue-800">{totalCoins}개</div>
+                    <div className="text-2xl sm:text-3xl font-bold text-blue-800">{totalCoins}개</div>
                   </div>
 
                   <div className="bg-green-50 rounded-lg p-4 border-2 border-green-200">
                     <div className="text-green-600 text-sm font-medium">Total Amount</div>
-                    <div className="text-3xl font-bold text-green-800">{totalAmount}원</div>
+                    <div className="text-2xl sm:text-3xl font-bold text-green-800">{totalAmount}원</div>
                   </div>
                 </div>
               </div>

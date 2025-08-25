@@ -280,12 +280,12 @@ export default function ShapeTransformationApp() {
       {!currentProblem ? (
           /* Start Screen */
           <Card className="bg-white border-2 border-purple-300 shadow-xl">
-            <CardContent className="p-12 text-center">
+            <CardContent className="p-6 md:p-12 text-center">
               <div className="mb-8">
                 <div className="text-6xl mb-4">🔄</div>
-                <h2 className="text-3xl font-bold text-gray-800 mb-4">도형 변환</h2>
-                <p className="text-lg text-gray-600 mb-2">도형의 회전과 대칭을 학습해보세요!</p>
-                <p className="text-md text-gray-500">Learn shape rotation and reflection!</p>
+                <h2 className="text-2xl md:text-3xl font-bold text-gray-800 mb-4">도형 변환</h2>
+                <p className="text-base md:text-lg text-gray-600 mb-2">도형의 회전과 대칭을 학습해보세요!</p>
+                <p className="text-sm md:text-md text-gray-500">Learn shape rotation and reflection!</p>
               </div>
 
               <div className="mb-8 grid grid-cols-2 md:grid-cols-4 gap-4 text-center">
@@ -317,7 +317,7 @@ export default function ShapeTransformationApp() {
           </Card>
       ) : (
           /* Problem Screen */
-          <div className="space-y-6 grid grid-cols-2 gap-2">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {/* Question */}
             <Card className="bg-white border-2 border-blue-300 shadow-lg">
               <CardContent className="p-8 h-full">
@@ -338,7 +338,7 @@ export default function ShapeTransformationApp() {
               <CardContent className="p-6">
                 <h3 className="text-xl font-bold text-gray-800 text-center mb-6">정답을 선택하세요</h3>
 
-                <div className="grid grid-cols-2 gap-6">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                   {currentProblem.options.map((option, index) => (
                       <div
                           key={index}

@@ -151,12 +151,12 @@ export default function EducationalToysHub() {
         {/* Header */}
         <div className="text-center mb-8">
           <div className="flex justify-center items-center gap-3 mb-4">
-            <Star className="w-8 h-8 text-yellow-500" />
-            <h1 className="text-4xl font-bold text-gray-800">교육 놀이터</h1>
-            <Star className="w-8 h-8 text-yellow-500" />
+            <Star className="w-6 h-6 sm:w-8 sm:h-8 text-yellow-500" />
+            <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-800">교육 놀이터</h1>
+            <Star className="w-6 h-6 sm:w-8 sm:h-8 text-yellow-500" />
           </div>
-          <p className="text-xl text-gray-600 mb-2">Educational Playground</p>
-          <p className="text-lg text-gray-500">재미있게 배우는 어린이 학습 게임</p>
+          <p className="text-lg sm:text-xl text-gray-600 mb-2">Educational Playground</p>
+          <p className="text-base sm:text-lg text-gray-500">재미있게 배우는 어린이 학습 게임</p>
           <div className="flex justify-center mt-4">
             <Heart className="w-6 h-6 text-red-400 animate-pulse" />
           </div>

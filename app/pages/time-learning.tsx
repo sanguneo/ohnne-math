@@ -165,17 +165,17 @@ export default function TimeLearningApp() {
         {!currentQuestion ? (
           /* Start Screen */
           <Card className="bg-white border-2 border-blue-300 shadow-xl">
-            <CardContent className="p-12 text-center">
+            <CardContent className="p-6 md:p-12 text-center">
               <div className="mb-8">
-                <Clock className="w-24 h-24 mx-auto text-blue-500 mb-4" />
-                <h2 className="text-3xl font-bold text-gray-800 mb-4">시간 배우기</h2>
-                <p className="text-lg text-gray-600 mb-2">아날로그와 디지털 시계로 시간을 읽어보세요!</p>
-                <p className="text-md text-gray-500">Learn to read analog and digital clocks!</p>
+                <Clock className="w-20 h-20 md:w-24 md:h-24 mx-auto text-blue-500 mb-4" />
+                <h2 className="text-2xl md:text-3xl font-bold text-gray-800 mb-4">시간 배우기</h2>
+                <p className="text-base md:text-lg text-gray-600 mb-2">아날로그와 디지털 시계로 시간을 읽어보세요!</p>
+                <p className="text-sm md:text-md text-gray-500">Learn to read analog and digital clocks!</p>
               </div>
 
               <Button
                 onClick={startNewQuestion}
-                className="bg-blue-500 hover:bg-blue-600 text-white text-xl px-8 py-4 rounded-full font-semibold shadow-lg"
+                className="bg-blue-500 hover:bg-blue-600 text-white text-lg md:text-xl px-6 md:px-8 py-3 md:py-4 rounded-full font-semibold shadow-lg"
               >
                 시작하기 Start! 🕐
               </Button>
@@ -183,13 +183,13 @@ export default function TimeLearningApp() {
           </Card>
         ) : (
           /* Question Screen */
-          <div className="space-y-6 grid grid-cols-2 gap-2">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {/* Clock Display */}
             <Card className="bg-white border-none shadow-none">
-              <CardContent className="p-8">
+              <CardContent className="p-6 md:p-8">
                 <div className="text-center mb-6">
-                  <h2 className="text-2xl font-bold text-gray-800 mb-2">{currentQuestion.questionText}</h2>
-                  <p className="text-lg text-gray-600">이 시계가 가리키는 시간은?</p>
+                  <h2 className="text-xl md:text-2xl font-bold text-gray-800 mb-2">{currentQuestion.questionText}</h2>
+                  <p className="text-base md:text-lg text-gray-600">이 시계가 가리키는 시간은?</p>
                 </div>
 
                 <div className="flex justify-center mb-8">
@@ -208,7 +208,7 @@ export default function TimeLearningApp() {
                 {/* Hour Selection */}
                 <div className="mb-6">
                   <h4 className="text-lg font-semibold text-gray-700 mb-3 text-center">시 (Hour)</h4>
-                  <div className="grid grid-cols-6 gap-2">
+                  <div className="grid grid-cols-3 sm:grid-cols-6 gap-2">
                     {Array.from({ length: 12 }, (_, i) => i + 1).map((hour) => (
                       <Button
                         key={hour}
@@ -228,7 +228,7 @@ export default function TimeLearningApp() {
                 {/* Minute Selection */}
                 <div className="mb-6">
                   <h4 className="text-lg font-semibold text-gray-700 mb-3 text-center">분 (Minute)</h4>
-                  <div className="grid grid-cols-6 gap-2">
+                  <div className="grid grid-cols-3 sm:grid-cols-6 gap-2">
                     {Array.from({ length: 12 }, (_, i) => i * 5).map((minute) => (
                       <Button
                         key={minute}

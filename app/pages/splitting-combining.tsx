@@ -287,12 +287,12 @@ export default function SplittingCombiningApp() {
       {!currentProblem ? (
         /* Start Screen */
         <Card className="bg-white border-none shadow-none">
-          <CardContent className="p-12 text-center">
+          <CardContent className="p-6 md:p-12 text-center">
             <div className="mb-8">
               <div className="text-6xl mb-4">🔢</div>
-              <h2 className="text-3xl font-bold text-gray-800 mb-4">가르기와 모으기</h2>
-              <p className="text-lg text-gray-600 mb-2">숫자를 나누고 합치는 연습을 해보세요!</p>
-              <p className="text-md text-gray-500">Practice splitting and combining numbers!</p>
+              <h2 className="text-2xl md:text-3xl font-bold text-gray-800 mb-4">가르기와 모으기</h2>
+              <p className="text-base md:text-lg text-gray-600 mb-2">숫자를 나누고 합치는 연습을 해보세요!</p>
+              <p className="text-sm md:text-md text-gray-500">Practice splitting and combining numbers!</p>
             </div>
 
             {/* 난이도 선택 */}
@@ -325,7 +325,7 @@ export default function SplittingCombiningApp() {
         </Card>
       ) : (
         /* Problem Screen */
-        <div className="space-y-6 grid grid-cols-2 gap-2">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {/* Question Card */}
           <Card className="bg-white border-none shadow-none">
             <CardContent className="p-8">
@@ -344,7 +344,7 @@ export default function SplittingCombiningApp() {
             <CardContent className="p-6">
               <h3 className="text-xl font-bold text-gray-800 text-center mb-4">답을 선택하세요</h3>
 
-              <div className="grid grid-cols-8 gap-3 mb-6">
+              <div className="grid grid-cols-4 sm:grid-cols-6 md:grid-cols-8 gap-3 mb-6">
                 {Array.from({length: difficulty * 6}, (_, i) => i + 1).map((number) => (
                   <Button
                     key={number}
