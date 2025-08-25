@@ -159,20 +159,21 @@ export default function MathBasicsApp() {
   const allAnswered = problems.every((problem) => problem.userAnswer.trim() !== "")
 
   return (
-    <>
+    <div className="min-h-screen bg-gradient-to-br from-blue-50 to-cyan-50 p-4">
+      <div className="max-w-4xl mx-auto">
       {problems.length === 0 ? (
           /* Start Screen */
-          <Card className="bg-white border-2 border-orange-300 shadow-xl">
-            <CardContent className="p-12 text-center">
+          <Card className="bg-white border-2 border-blue-300 shadow-xl">
+            <CardContent className="p-6 md:p-12 text-center">
               <div className="mb-8">
-                <Calculator className="w-24 h-24 mx-auto text-orange-500 mb-4" />
-                <h2 className="text-3xl font-bold text-gray-800 mb-4">덧셈뺄셈</h2>
-                <p className="text-lg text-gray-600 mb-2">덧셈과 뺄셈을 연습해보세요!</p>
+                <Calculator className="w-20 h-20 md:w-24 md:h-24 mx-auto text-blue-500 mb-4" />
+                <h2 className="text-2xl md:text-3xl font-bold text-gray-800 mb-4">덧셈뺄셈</h2>
+                <p className="text-base md:text-lg text-gray-600 mb-2">덧셈과 뺄셈을 연습해보세요!</p>
               </div>
 
               {/* 난이도 선택 */}
               <div className="mb-8">
-                <h3 className="text-xl font-bold text-gray-800 mb-4">난이도 선택</h3>
+                <h3 className="text-lg md:text-xl font-bold text-gray-800 mb-4">난이도 선택</h3>
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
                   {Object.entries(difficultyConfigs).map(([key, config]) => (
                       <div
@@ -200,7 +201,7 @@ export default function MathBasicsApp() {
 
               <Button
                   onClick={generateProblems}
-                  className="bg-orange-500 hover:bg-orange-600 text-white text-xl px-8 py-4 rounded-full font-semibold shadow-lg"
+                  className="bg-blue-500 hover:bg-blue-600 text-white text-xl px-8 py-4 rounded-full font-semibold shadow-lg"
               >
                 {difficultyConfigs[difficulty].name} 단계 시작! 📝
               </Button>
@@ -262,7 +263,7 @@ export default function MathBasicsApp() {
                           <Trophy className="w-6 h-6 text-yellow-500" />
                           <span className="text-xl font-bold text-gray-800">점수: {score}/10</span>
                         </div>
-                        <div className="text-lg font-semibold text-purple-600">
+                        <div className="text-lg font-semibold text-blue-600">
                           {score >= 9 ? "완벽해요! 🌟" : score >= 7 ? "잘했어요! 👏" : "더 연습해봐요! 💪"}
                         </div>
                       </div>
@@ -288,7 +289,7 @@ export default function MathBasicsApp() {
             </Card>
 
             {/* Problems Grid */}
-            <div className="grid grid-cols-2 gap-3">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
               {problems.map((problem) => (
                   <Card
                       key={problem.id}
@@ -371,7 +372,7 @@ export default function MathBasicsApp() {
                             setProblems([])
                             setShowResults(false)
                           }}
-                          className="bg-purple-500 hover:bg-purple-600 text-white px-6 py-3 rounded-full font-semibold"
+                          className="bg-blue-500 hover:bg-blue-600 text-white px-6 py-3 rounded-full font-semibold"
                       >
                         난이도 바꾸기
                       </Button>
@@ -381,6 +382,7 @@ export default function MathBasicsApp() {
             )}
           </div>
       )}
-    </>
+      </div>
+    </div>
   )
 }

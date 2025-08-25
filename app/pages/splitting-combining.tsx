@@ -248,8 +248,8 @@ export default function SplittingCombiningApp() {
             <div className="bg-gray-100 rounded-lg p-4 border-2 border-gray-300 to">
               {showResult ? (
                 <>
-                  {renderDots(total, "bg-purple-400")}
-                  <div className="text-xl font-bold text-purple-800 mt-2">{total}</div>
+                  {renderDots(total, "bg-blue-400")}
+                  <div className="text-xl font-bold text-blue-800 mt-2">{total}</div>
                 </>
               ) : (
                 <div className="w-20 h-16 flex items-center justify-center">
@@ -264,145 +264,152 @@ export default function SplittingCombiningApp() {
   }
 
   return (
-    <>
-      <svg id="line-layer" className="connector-line absolute top-0 left-0 pointer-events-none z-0" width="100%" height="100%"></svg>
-      {/* Score Display */}
-      <div className="text-center mb-6">
-        <div
-          className="inline-flex items-center gap-4 bg-white/80 rounded-full px-6 py-3 border-none border-gray-200 shadow-none text-xl">
-          <div className="text-green-600 font-semibold">정답: {score.correct}</div>
-          <div className="text-gray-500">|</div>
-          <div className="text-blue-600 font-semibold">총 문제: {score.total}</div>
-          {score.total > 0 && (
-            <>
-              <div className="text-gray-500">|</div>
-              <div className="text-purple-600 font-semibold">
-                정답률: {Math.round((score.correct / score.total) * 100)}%
-              </div>
-            </>
-          )}
+    <div className="min-h-screen bg-gradient-to-br from-blue-50 to-cyan-50 p-4">
+      <div className="max-w-4xl mx-auto relative">
+        <svg
+          id="line-layer"
+          className="connector-line absolute top-0 left-0 pointer-events-none z-0"
+          width="100%"
+          height="100%"
+        ></svg>
+        {/* Score Display */}
+        <div className="text-center mb-6">
+          <div
+            className="inline-flex flex-wrap justify-center items-center gap-2 sm:gap-4 bg-white/80 rounded-full px-4 sm:px-6 py-2 sm:py-3 border-2 border-blue-200 shadow-md text-sm sm:text-lg"
+          >
+            <div className="text-green-600 font-semibold">정답: {score.correct}</div>
+            <div className="text-gray-500">|</div>
+            <div className="text-blue-600 font-semibold">총 문제: {score.total}</div>
+            {score.total > 0 && (
+              <>
+                <div className="text-gray-500">|</div>
+                <div className="text-blue-600 font-semibold">
+                  정답률: {Math.round((score.correct / score.total) * 100)}%
+                </div>
+              </>
+            )}
+          </div>
         </div>
-      </div>
 
-      {!currentProblem ? (
-        /* Start Screen */
-        <Card className="bg-white border-none shadow-none">
-          <CardContent className="p-12 text-center">
-            <div className="mb-8">
-              <div className="text-6xl mb-4">🔢</div>
-              <h2 className="text-3xl font-bold text-gray-800 mb-4">가르기와 모으기</h2>
-              <p className="text-lg text-gray-600 mb-2">숫자를 나누고 합치는 연습을 해보세요!</p>
-              <p className="text-md text-gray-500">Practice splitting and combining numbers!</p>
-            </div>
-
-            {/* 난이도 선택 */}
-            <div className="mb-8">
-              <h3 className="text-xl font-bold text-gray-800 mb-4">난이도 선택</h3>
-              <div className="flex justify-center gap-4">
-                {[2, 3, 4].map((level) => (
-                  <Button
-                    key={level}
-                    onClick={() => setDifficulty(level as 2 | 3 | 4)}
-                    className={`px-6 py-3 rounded-full font-semibold ${
-                      difficulty === level
-                        ? "bg-purple-500 text-white"
-                        : "bg-gray-200 text-gray-700 hover:bg-gray-300"
-                    }`}
-                  >
-                    {level}개로 나누기
-                  </Button>
-                ))}
-              </div>
-            </div>
-
-            <Button
-              onClick={startNewProblem}
-              className="bg-purple-500 hover:bg-purple-600 text-white text-xl px-8 py-4 rounded-full font-semibold shadow-lg"
-            >
-              시작하기 Start! 🚀
-            </Button>
-          </CardContent>
-        </Card>
-      ) : (
-        /* Problem Screen */
-        <div className="space-y-6 grid grid-cols-2 gap-2">
-          {/* Question Card */}
-          <Card className="bg-white border-none shadow-none">
-            <CardContent className="p-8">
-              <div className="text-center mb-6">
-                <h2 className="text-2xl font-bold text-gray-800 mb-2">문제</h2>
-                <p className="text-xl text-gray-700">{currentProblem.question}</p>
+        {!currentProblem ? (
+          /* Start Screen */
+          <Card className="bg-white border-2 border-blue-300 shadow-xl">
+            <CardContent className="p-6 md:p-12 text-center">
+              <div className="mb-8">
+                <div className="text-5xl md:text-6xl mb-4">🔢</div>
+                <h2 className="text-2xl md:text-3xl font-bold text-gray-800 mb-4">가르기와 모으기</h2>
+                <p className="text-base md:text-lg text-gray-600 mb-2">숫자를 나누고 합치는 연습을 해보세요!</p>
+                <p className="text-sm md:text-md text-gray-500">Practice splitting and combining numbers!</p>
               </div>
 
-              {/* Tree Visualization */}
-              <div className="mb-8 overflow-x-auto">{renderTreeVisualization()}</div>
-            </CardContent>
-          </Card>
-
-          {/* Answer Selection */}
-          <Card className="bg-white border-none shadow-none">
-            <CardContent className="p-6">
-              <h3 className="text-xl font-bold text-gray-800 text-center mb-4">답을 선택하세요</h3>
-
-              <div className="grid grid-cols-8 gap-3 mb-6">
-                {Array.from({length: difficulty * 6}, (_, i) => i + 1).map((number) => (
-                  <Button
-                    key={number}
-                    onClick={() => handleNumberSelect(number)}
-                    className={`h-14 text-lg font-bold rounded-xl border-2 transition-all ${
-                      userAnswer === number
-                        ? "bg-blue-500 text-white border-blue-600 shadow-lg scale-105"
-                        : "bg-white text-gray-700 border-gray-300 hover:border-blue-400 hover:bg-blue-50"
-                    }`}
-                  >
-                    {number}
-                  </Button>
-                ))}
-              </div>
-
-              {/* Action Buttons */}
-              <div className="flex gap-4 justify-center">
-                {!showResult ? (
-                  <Button
-                    onClick={checkAnswer}
-                    disabled={userAnswer === null}
-                    className="bg-green-500 hover:bg-green-600 text-white px-16 py-6 rounded-sm font-semibold disabled:opacity-50 text-lg"
-                  >
-                    확인하기 Check! ✓
-                  </Button>
-                ) : (
-                  <div className="text-center">
-                    <div
-                      className={`text-2xl font-bold mb-4 ${
-                        userAnswer === currentProblem.answer ? "text-green-600" : "text-red-600"
+              {/* 난이도 선택 */}
+              <div className="mb-8">
+                <h3 className="text-xl font-bold text-gray-800 mb-4">난이도 선택</h3>
+                <div className="flex flex-wrap justify-center gap-3 sm:gap-4">
+                  {[2, 3, 4].map((level) => (
+                    <Button
+                      key={level}
+                      onClick={() => setDifficulty(level as 2 | 3 | 4)}
+                      className={`px-4 py-2 sm:px-6 sm:py-3 rounded-full font-semibold text-sm sm:text-base ${
+                        difficulty === level
+                          ? "bg-blue-500 text-white"
+                          : "bg-gray-200 text-gray-700 hover:bg-gray-300"
                       }`}
                     >
-                      {userAnswer === currentProblem.answer ? (
-                        <div className="flex items-center justify-center gap-2 text-lg rounded-sm">
-                          <Check className="w-8 h-8"/>
-                          정답입니다! 🎉
-                        </div>
-                      ) : (
-                        <div className="flex items-center justify-center gap-2 text-lg rounded-sm">
-                          <X className="w-8 h-8"/>
-                          틀렸어요. 정답은 {currentProblem.answer}입니다.
-                        </div>
-                      )}
-                    </div>
-
-                    <Button
-                      onClick={startNewProblem}
-                      className="bg-purple-500 hover:bg-purple-600 text-white px-16 py-6 rounded-sm font-semibold text-lg"
-                    >
-                      다음 문제 Next!
+                      {level}개로 나누기
                     </Button>
-                  </div>
-                )}
+                  ))}
+                </div>
               </div>
+
+              <Button
+                onClick={startNewProblem}
+                className="bg-blue-500 hover:bg-blue-600 text-white text-lg md:text-xl px-6 md:px-8 py-3 md:py-4 rounded-full font-semibold shadow-lg"
+              >
+                시작하기 Start! 🚀
+              </Button>
             </CardContent>
           </Card>
-        </div>
-      )}
-    </>
+          ) : (
+          /* Problem Screen */
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            {/* Question Card */}
+            <Card className="bg-white border-2 border-blue-300 shadow-lg">
+              <CardContent className="p-6 md:p-8">
+                <div className="text-center mb-6">
+                  <h2 className="text-xl md:text-2xl font-bold text-gray-800 mb-2">문제</h2>
+                  <p className="text-lg md:text-xl text-gray-700">{currentProblem.question}</p>
+                </div>
+                {/* Tree Visualization */}
+                <div className="mb-8 overflow-x-auto">{renderTreeVisualization()}</div>
+              </CardContent>
+            </Card>
+
+            {/* Answer Selection */}
+            <Card className="bg-white border-2 border-blue-300 shadow-lg">
+              <CardContent className="p-4 md:p-6">
+                <h3 className="text-lg md:text-xl font-bold text-gray-800 text-center mb-4">답을 선택하세요</h3>
+
+                <div className="grid grid-cols-4 sm:grid-cols-6 md:grid-cols-8 gap-3 mb-6">
+                  {Array.from({ length: difficulty * 6 }, (_, i) => i + 1).map((number) => (
+                    <Button
+                      key={number}
+                      onClick={() => handleNumberSelect(number)}
+                      className={`h-12 sm:h-14 text-base sm:text-lg font-bold rounded-xl border-2 transition-all ${
+                        userAnswer === number
+                          ? "bg-blue-500 text-white border-blue-600 shadow-lg scale-105"
+                          : "bg-white text-gray-700 border-gray-300 hover:border-blue-400 hover:bg-blue-50"
+                      }`}
+                    >
+                      {number}
+                    </Button>
+                  ))}
+                </div>
+
+                {/* Action Buttons */}
+                <div className="flex gap-3 sm:gap-4 justify-center">
+                  {!showResult ? (
+                    <Button
+                      onClick={checkAnswer}
+                      disabled={userAnswer === null}
+                      className="bg-green-500 hover:bg-green-600 text-white px-8 md:px-16 py-4 md:py-6 rounded-sm font-semibold disabled:opacity-50 text-base md:text-lg"
+                    >
+                      확인하기 Check! ✓
+                    </Button>
+                  ) : (
+                    <div className="text-center">
+                      <div
+                        className={`text-xl md:text-2xl font-bold mb-4 ${
+                          userAnswer === currentProblem.answer ? "text-green-600" : "text-red-600"
+                        }`}
+                      >
+                        {userAnswer === currentProblem.answer ? (
+                          <div className="flex items-center justify-center gap-2 text-base md:text-lg rounded-sm">
+                            <Check className="w-6 h-6 md:w-8 md:h-8" />
+                            정답입니다! 🎉
+                          </div>
+                        ) : (
+                          <div className="flex items-center justify-center gap-2 text-base md:text-lg rounded-sm">
+                            <X className="w-6 h-6 md:w-8 md:h-8" />
+                            틀렸어요. 정답은 {currentProblem.answer}입니다.
+                          </div>
+                        )}
+                      </div>
+
+                      <Button
+                        onClick={startNewProblem}
+                        className="bg-blue-500 hover:bg-blue-600 text-white px-8 md:px-16 py-4 md:py-6 rounded-sm font-semibold text-base md:text-lg"
+                      >
+                        다음 문제 Next!
+                      </Button>
+                    </div>
+                  )}
+                </div>
+              </CardContent>
+            </Card>
+          </div>
+        )}
+      </div>
+    </div>
   )
 }
