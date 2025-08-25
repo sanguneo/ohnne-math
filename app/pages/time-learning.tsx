@@ -56,7 +56,7 @@ export default function TimeLearningApp() {
     const minuteAngle = minute * 6 // 분침 각도
 
     return (
-      <div className="relative w-64 h-64 mx-auto">
+      <div className="relative w-56 h-56 sm:w-64 sm:h-64 mx-auto">
         {/* 시계 외곽 */}
         <div className="w-full h-full rounded-full border-8 border-gray-800 bg-white shadow-2xl relative">
           {/* 시간 숫자들 */}
@@ -132,7 +132,7 @@ export default function TimeLearningApp() {
     const displayMinute = minute.toString().padStart(2, "0")
 
     return (
-      <div className="w-80 h-32 mx-auto">
+      <div className="w-64 h-28 sm:w-80 sm:h-32 mx-auto">
         <div className="w-full h-full bg-gray-900 rounded-2xl border-4 border-gray-700 shadow-2xl flex items-center justify-center">
           <div className="text-6xl font-mono font-bold text-green-400 tracking-wider">
             {displayHour}:{displayMinute}
@@ -143,18 +143,19 @@ export default function TimeLearningApp() {
   }
 
   return (
-    <>
+    <div className="min-h-screen bg-gradient-to-br from-green-50 to-emerald-50 p-4">
+      <div className="max-w-4xl mx-auto">
       {/* Score Display */}
       <div className="text-center mb-6">
         <div
           className="inline-flex items-center gap-4 bg-white/80 rounded-full px-6 py-3 border-none border-gray-200 shadow-none text-xl">
           <div className="text-green-600 font-semibold">정답: {score.correct}</div>
           <div className="text-gray-500">|</div>
-          <div className="text-blue-600 font-semibold">총 문제: {score.total}</div>
+          <div className="text-green-600 font-semibold">총 문제: {score.total}</div>
           {score.total > 0 && (
             <>
               <div className="text-gray-500">|</div>
-              <div className="text-purple-600 font-semibold">
+              <div className="text-emerald-600 font-semibold">
                 정답률: {Math.round((score.correct / score.total) * 100)}%
               </div>
             </>
@@ -164,10 +165,10 @@ export default function TimeLearningApp() {
 
         {!currentQuestion ? (
           /* Start Screen */
-          <Card className="bg-white border-2 border-blue-300 shadow-xl">
+          <Card className="bg-white border-2 border-green-300 shadow-xl">
             <CardContent className="p-6 md:p-12 text-center">
               <div className="mb-8">
-                <Clock className="w-20 h-20 md:w-24 md:h-24 mx-auto text-blue-500 mb-4" />
+                <Clock className="w-20 h-20 md:w-24 md:h-24 mx-auto text-green-500 mb-4" />
                 <h2 className="text-2xl md:text-3xl font-bold text-gray-800 mb-4">시간 배우기</h2>
                 <p className="text-base md:text-lg text-gray-600 mb-2">아날로그와 디지털 시계로 시간을 읽어보세요!</p>
                 <p className="text-sm md:text-md text-gray-500">Learn to read analog and digital clocks!</p>
@@ -175,7 +176,7 @@ export default function TimeLearningApp() {
 
               <Button
                 onClick={startNewQuestion}
-                className="bg-blue-500 hover:bg-blue-600 text-white text-lg md:text-xl px-6 md:px-8 py-3 md:py-4 rounded-full font-semibold shadow-lg"
+                className="bg-green-500 hover:bg-green-600 text-white text-lg md:text-xl px-6 md:px-8 py-3 md:py-4 rounded-full font-semibold shadow-lg"
               >
                 시작하기 Start! 🕐
               </Button>
@@ -185,7 +186,7 @@ export default function TimeLearningApp() {
           /* Question Screen */
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {/* Clock Display */}
-            <Card className="bg-white border-none shadow-none">
+            <Card className="bg-white border-2 border-green-300 shadow-lg">
               <CardContent className="p-6 md:p-8">
                 <div className="text-center mb-6">
                   <h2 className="text-xl md:text-2xl font-bold text-gray-800 mb-2">{currentQuestion.questionText}</h2>
@@ -201,7 +202,7 @@ export default function TimeLearningApp() {
             </Card>
 
             {/* Answer Selection */}
-            <Card className="bg-white  border-none shadow-none">
+            <Card className="bg-white border-2 border-green-300 shadow-lg">
               <CardContent className="p-6">
                 <h3 className="text-xl font-bold text-gray-800 text-center mb-6">시간을 선택하세요</h3>
 
@@ -215,8 +216,8 @@ export default function TimeLearningApp() {
                         onClick={() => setSelectedHour(hour)}
                         className={`h-12 text-lg font-bold rounded-lg border-2 transition-all ${
                           selectedHour === hour
-                            ? "bg-blue-500 text-white border-blue-600 shadow-lg scale-105"
-                            : "bg-white text-gray-700 border-gray-300 hover:border-blue-400 hover:bg-blue-50"
+                            ? "bg-green-500 text-white border-green-600 shadow-lg scale-105"
+                            : "bg-white text-gray-700 border-gray-300 hover:border-green-400 hover:bg-green-50"
                         }`}
                       >
                         {hour}
@@ -297,7 +298,7 @@ export default function TimeLearningApp() {
 
                       <Button
                         onClick={startNewQuestion}
-                        className="bg-blue-500 hover:bg-blue-600 text-white px-8 py-3 rounded-full font-semibold"
+                        className="bg-green-500 hover:bg-green-600 text-white px-8 py-3 rounded-full font-semibold"
                       >
                         <RefreshCw className="w-5 h-5 mr-2" />
                         다음 문제 Next!
@@ -309,6 +310,7 @@ export default function TimeLearningApp() {
             </Card>
           </div>
         )}
-      </>
+      </div>
+    </div>
   )
 }

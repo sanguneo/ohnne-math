@@ -248,8 +248,8 @@ export default function SplittingCombiningApp() {
             <div className="bg-gray-100 rounded-lg p-4 border-2 border-gray-300 to">
               {showResult ? (
                 <>
-                  {renderDots(total, "bg-purple-400")}
-                  <div className="text-xl font-bold text-purple-800 mt-2">{total}</div>
+                  {renderDots(total, "bg-blue-400")}
+                  <div className="text-xl font-bold text-blue-800 mt-2">{total}</div>
                 </>
               ) : (
                 <div className="w-20 h-16 flex items-center justify-center">
@@ -264,7 +264,8 @@ export default function SplittingCombiningApp() {
   }
 
   return (
-    <>
+    <div className="min-h-screen bg-gradient-to-br from-blue-50 to-cyan-50 p-4">
+      <div className="max-w-4xl mx-auto relative">
       <svg id="line-layer" className="connector-line absolute top-0 left-0 pointer-events-none z-0" width="100%" height="100%"></svg>
       {/* Score Display */}
       <div className="text-center mb-6">
@@ -276,7 +277,7 @@ export default function SplittingCombiningApp() {
           {score.total > 0 && (
             <>
               <div className="text-gray-500">|</div>
-              <div className="text-purple-600 font-semibold">
+              <div className="text-blue-600 font-semibold">
                 정답률: {Math.round((score.correct / score.total) * 100)}%
               </div>
             </>
@@ -305,7 +306,7 @@ export default function SplittingCombiningApp() {
                     onClick={() => setDifficulty(level as 2 | 3 | 4)}
                     className={`px-6 py-3 rounded-full font-semibold ${
                       difficulty === level
-                        ? "bg-purple-500 text-white"
+                        ? "bg-blue-500 text-white"
                         : "bg-gray-200 text-gray-700 hover:bg-gray-300"
                     }`}
                   >
@@ -317,7 +318,7 @@ export default function SplittingCombiningApp() {
 
             <Button
               onClick={startNewProblem}
-              className="bg-purple-500 hover:bg-purple-600 text-white text-xl px-8 py-4 rounded-full font-semibold shadow-lg"
+              className="bg-blue-500 hover:bg-blue-600 text-white text-xl px-8 py-4 rounded-full font-semibold shadow-lg"
             >
               시작하기 Start! 🚀
             </Button>
@@ -392,7 +393,7 @@ export default function SplittingCombiningApp() {
 
                     <Button
                       onClick={startNewProblem}
-                      className="bg-purple-500 hover:bg-purple-600 text-white px-16 py-6 rounded-sm font-semibold text-lg"
+                      className="bg-blue-500 hover:bg-blue-600 text-white px-16 py-6 rounded-sm font-semibold text-lg"
                     >
                       다음 문제 Next!
                     </Button>
@@ -403,6 +404,7 @@ export default function SplittingCombiningApp() {
           </Card>
         </div>
       )}
-    </>
+      </div>
+    </div>
   )
 }

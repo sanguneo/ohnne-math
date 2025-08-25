@@ -259,7 +259,8 @@ export default function ShapeTransformationApp() {
   }
 
   return (
-    <>
+    <div className="min-h-screen bg-gradient-to-br from-orange-50 to-red-50 p-4">
+      <div className="max-w-4xl mx-auto">
       {/* Score Display */}
       <div className="text-center mb-6">
         <div className="inline-flex items-center gap-4 bg-white/80 rounded-full px-6 py-3 border-2 border-gray-200 shadow-sm">
@@ -269,7 +270,7 @@ export default function ShapeTransformationApp() {
           {score.total > 0 && (
               <>
                 <div className="text-gray-500">|</div>
-                <div className="text-purple-600 font-semibold">
+                <div className="text-orange-600 font-semibold">
                   정답률: {Math.round((score.correct / score.total) * 100)}%
                 </div>
               </>
@@ -279,7 +280,7 @@ export default function ShapeTransformationApp() {
 
       {!currentProblem ? (
           /* Start Screen */
-          <Card className="bg-white border-2 border-purple-300 shadow-xl">
+          <Card className="bg-white border-2 border-orange-300 shadow-xl">
             <CardContent className="p-6 md:p-12 text-center">
               <div className="mb-8">
                 <div className="text-6xl mb-4">🔄</div>
@@ -309,7 +310,7 @@ export default function ShapeTransformationApp() {
 
               <Button
                   onClick={generateProblem}
-                  className="bg-purple-500 hover:bg-purple-600 text-white text-xl px-8 py-4 rounded-full font-semibold shadow-lg"
+                  className="bg-orange-500 hover:bg-orange-600 text-white text-xl px-8 py-4 rounded-full font-semibold shadow-lg"
               >
                 문제 시작! Start! 🎯
               </Button>
@@ -399,9 +400,9 @@ export default function ShapeTransformationApp() {
                           )}
                         </div>
 
-                        <Button
+                    <Button
                             onClick={generateProblem}
-                            className="bg-purple-500 hover:bg-purple-600 text-white px-8 py-3 rounded-full font-semibold"
+                            className="bg-orange-500 hover:bg-orange-600 text-white px-8 py-3 rounded-full font-semibold"
                         >
                           <RefreshCw className="w-5 h-5 mr-2" />
                           다음 문제 Next!
@@ -413,6 +414,7 @@ export default function ShapeTransformationApp() {
             </Card>
           </div>
       )}
-    </>
+      </div>
+    </div>
   )
 }
