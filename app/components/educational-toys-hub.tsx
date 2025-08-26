@@ -27,7 +27,7 @@ const toyPages = [
     color: "bg-gradient-to-br from-blue-100 to-cyan-100 border-blue-300",
     iconColor: "text-blue-600",
     available: true,
-    path: "/splitting-combining",
+    path: "/math/splitting-combining",
   },
   {
     id: "coin-counting",
@@ -37,7 +37,7 @@ const toyPages = [
     color: "bg-gradient-to-br from-yellow-100 to-amber-100 border-yellow-300",
     iconColor: "text-yellow-600",
     available: true,
-    path: "/coin-counting",
+    path: "/math/coin-counting",
   },
   {
     id: "time-learning",
@@ -47,7 +47,7 @@ const toyPages = [
     color: "bg-gradient-to-br from-green-100 to-emerald-100 border-green-300",
     iconColor: "text-green-600",
     available: true,
-    path: "/time-learning",
+    path: "/math/time-learning",
   },
   {
     id: "math-basics",
@@ -57,7 +57,7 @@ const toyPages = [
     color: "bg-gradient-to-br from-blue-100 to-cyan-100 border-blue-300",
     iconColor: "text-blue-600",
     available: true,
-    path: "/add-sub",
+    path: "/math/add-sub",
   },
   {
     id: "shape-puzzle",
@@ -68,7 +68,7 @@ const toyPages = [
     color: "bg-gradient-to-br from-orange-100 to-red-100 border-orange-300",
     iconColor: "text-orange-600",
     available: true,
-    path: "/shape-transform",
+    path: "/math/shape-transform",
   },
   {
     id: "math-basics",
@@ -78,7 +78,7 @@ const toyPages = [
     color: "bg-gradient-to-br from-blue-100 to-cyan-100 border-blue-300",
     iconColor: "text-blue-600",
     available: false,
-    path: "/math-basics",
+    path: "/math/math-basics",
   },
   {
     id: "nonogram",
@@ -89,7 +89,7 @@ const toyPages = [
     color: "bg-gradient-to-br from-indigo-100 to-purple-100 border-indigo-300",
     iconColor: "text-indigo-600",
     available: true,
-    path: "/nonogram",
+    path: "/math/nonogram",
   },
   {
     id: "color-mixing",
@@ -100,7 +100,7 @@ const toyPages = [
     color: "bg-gradient-to-br from-pink-100 to-rose-100 border-pink-300",
     iconColor: "text-pink-600",
     available: false,
-    path: "/color-mixing",
+    path: "/english/color-mixing",
   },
   {
     id: "alphabet-game",
@@ -111,7 +111,7 @@ const toyPages = [
     color: "bg-gradient-to-br from-purple-100 to-violet-100 border-purple-300",
     iconColor: "text-purple-600",
     available: false,
-    path: "/alphabet-game",
+    path: "/english/alphabet-game",
   },
   {
     id: "music-maker",
@@ -122,7 +122,7 @@ const toyPages = [
     color: "bg-gradient-to-br from-indigo-100 to-blue-100 border-indigo-300",
     iconColor: "text-indigo-600",
     available: false,
-    path: "/music-maker",
+    path: "/english/music-maker",
   },
   {
     id: "world-explorer",
@@ -133,7 +133,7 @@ const toyPages = [
     color: "bg-gradient-to-br from-teal-100 to-cyan-100 border-teal-300",
     iconColor: "text-teal-600",
     available: false,
-    path: "/world-explorer",
+    path: "/english/world-explorer",
   },
 ]
 
