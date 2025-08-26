@@ -2,7 +2,8 @@ import { type RouteConfig, index, route } from "@react-router/dev/routes";
 
 export default [
   index("pages/home.tsx"),
-  route("math", "pages/math/index.tsx", [
+  route("math", "pages/math/layout.tsx", [
+    index("pages/math/index.tsx"),
     route("coin-counting", "pages/math/coin-counting.tsx"),
     route("splitting-combining", "pages/math/splitting-combining.tsx"),
     route("time-learning", "pages/math/time-learning.tsx"),
