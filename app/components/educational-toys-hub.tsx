@@ -18,6 +18,10 @@ import {
   Grid3X3
 } from "lucide-react"
 
+interface EducationalToysHubProps {
+  category: "math" | "english";
+}
+
 const toyPages = [
   {
     id: "splitting-combining",
@@ -28,6 +32,7 @@ const toyPages = [
     iconColor: "text-blue-600",
     available: true,
     path: "/math/splitting-combining",
+    category: "math",
   },
   {
     id: "coin-counting",
@@ -38,6 +43,7 @@ const toyPages = [
     iconColor: "text-yellow-600",
     available: true,
     path: "/math/coin-counting",
+    category: "math",
   },
   {
     id: "time-learning",
@@ -48,6 +54,7 @@ const toyPages = [
     iconColor: "text-green-600",
     available: true,
     path: "/math/time-learning",
+    category: "math",
   },
   {
     id: "math-basics",
@@ -58,6 +65,7 @@ const toyPages = [
     iconColor: "text-blue-600",
     available: true,
     path: "/math/add-sub",
+    category: "math",
   },
   {
     id: "shape-puzzle",
@@ -69,6 +77,7 @@ const toyPages = [
     iconColor: "text-orange-600",
     available: true,
     path: "/math/shape-transform",
+    category: "math",
   },
   {
     id: "math-basics",
@@ -79,6 +88,7 @@ const toyPages = [
     iconColor: "text-blue-600",
     available: false,
     path: "/math/math-basics",
+    category: "math",
   },
   {
     id: "nonogram",
@@ -90,6 +100,7 @@ const toyPages = [
     iconColor: "text-indigo-600",
     available: true,
     path: "/math/nonogram",
+    category: "math",
   },
   {
     id: "color-mixing",
@@ -101,6 +112,7 @@ const toyPages = [
     iconColor: "text-pink-600",
     available: false,
     path: "/english/color-mixing",
+    category: "english",
   },
   {
     id: "alphabet-game",
@@ -112,6 +124,7 @@ const toyPages = [
     iconColor: "text-purple-600",
     available: false,
     path: "/english/alphabet-game",
+    category: "english",
   },
   {
     id: "music-maker",
@@ -123,6 +136,7 @@ const toyPages = [
     iconColor: "text-indigo-600",
     available: false,
     path: "/english/music-maker",
+    category: "english",
   },
   {
     id: "world-explorer",
@@ -134,11 +148,13 @@ const toyPages = [
     iconColor: "text-teal-600",
     available: false,
     path: "/english/world-explorer",
+    category: "english",
   },
 ]
 
-export default function EducationalToysHub() {
-  const navigate  = useNavigate();
+export default function EducationalToysHub({ category }: EducationalToysHubProps) {
+  const navigate = useNavigate();
+  const filteredToyPages = toyPages.filter((toy) => toy.category === category);
   const handleToyClick = (toy: (typeof toyPages)[0]) => {
     if (toy.available) {
       navigate(toy.path);
@@ -164,7 +180,7 @@ export default function EducationalToysHub() {
 
         {/* Toy Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-          {toyPages.map((toy) => {
+          {filteredToyPages.map((toy) => {
             const IconComponent = toy.icon
             return (
               <Card
