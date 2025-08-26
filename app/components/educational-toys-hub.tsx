@@ -57,7 +57,7 @@ const toyPages = [
     category: "math",
   },
   {
-    id: "math-basics",
+    id: "add-sub",
     title: "덧셈뺄셈",
     description: "Addition, subtraction, and number recognition games",
     icon: Calculator,
