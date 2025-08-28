@@ -18,7 +18,7 @@ interface QuizResponse {
   wordpairs: QuizItem[];
 }
 
-const baseUrl = "http://localhost:34567/english";
+const baseUrl = `${import.meta.env.VITE_APIBASE}/english`;
 const sessionId = "kid-001";
 
 export default function WordQuizPage() {
