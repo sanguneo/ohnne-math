@@ -25,6 +25,7 @@ export const links: Route.LinksFunction = () => [
 ];
 
 export function Layout({ children }: { children: React.ReactNode }) {
+  console.log(import.meta.env.VITE_APIBASE);
   return (
     <html lang="en">
       <head>

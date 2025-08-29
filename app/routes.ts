@@ -11,5 +11,9 @@ export default [
     route("shape-transform", "pages/math/shape-transform.tsx"),
     route("nonogram", "pages/math/nonogram.tsx"),
   ]),
-  route("english", "pages/english/index.tsx"),
+  route("english", "pages/english/layout.tsx", [
+    index("pages/english/index.tsx"),
+    route("word-quiz", "pages/english/word-quiz.tsx"),
+    route("learned-words", "pages/english/learned-words.tsx"),
+  ]),
 ] satisfies RouteConfig;
