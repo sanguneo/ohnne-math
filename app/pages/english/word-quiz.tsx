@@ -5,7 +5,7 @@ interface QuizItem {
   id?: string;
   question: string;
   options: string[];
-  answer: number; // index of correct option
+  answer: string; // correct option text
   explanation?: string;
   word?: string;
   kind?: string; // synonyms, antonyms, wordpairs
@@ -147,7 +147,7 @@ export default function WordQuizPage() {
 
   const q = quiz[reviewIndex];
   const userAnswer = answers[reviewIndex];
-  const correctAnswerIndex = q.answer - 1; // API provides 1-based index
+  const correctAnswerIndex = q.options.indexOf(q.answer);
 
   return (
     <div className="p-4 max-w-xl mx-auto space-y-4">
@@ -189,7 +189,9 @@ export default function WordQuizPage() {
         </div>
         <div className="p-2 rounded bg-green-50">
           <span className="font-semibold">정답:</span>{" "}
-          {`${String.fromCharCode(97 + correctAnswerIndex)}) ${q.options[correctAnswerIndex]}`}
+          {correctAnswerIndex >= 0
+            ? `${String.fromCharCode(97 + correctAnswerIndex)}) ${q.answer}`
+            : q.answer}
         </div>
       </div>
       {q.explanation && (
