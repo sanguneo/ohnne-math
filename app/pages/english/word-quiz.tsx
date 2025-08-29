@@ -95,11 +95,12 @@ export default function WordQuizPage() {
     }
   };
 
-  const nextReview = async () => {
+  const nextReview = () => {
     if (reviewIndex === quiz.length - 1) {
-      await finishReview();
       alert("오늘의 단어학습을 완료했어요!");
       navigate("/english");
+      // run cleanup tasks without blocking navigation
+      void finishReview();
     } else {
       setReviewIndex((i) => i + 1);
     }
