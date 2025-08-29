@@ -107,6 +107,7 @@ export default function WordQuizPage() {
 
   if (!submitted) {
     const q = quiz[current];
+    const allAnswered = answers.every((a) => a !== null && a !== undefined);
     return (
       <div className="p-4 max-w-xl mx-auto space-y-4">
         <h2 className="text-xl font-bold">오늘의 단어 학습</h2>
@@ -132,7 +133,7 @@ export default function WordQuizPage() {
             이전
           </Button>
           {current === quiz.length - 1 ? (
-            <Button onClick={handleSubmit} disabled={answers.includes(null)}>
+            <Button onClick={handleSubmit} disabled={!allAnswered}>
               채점
             </Button>
           ) : (
