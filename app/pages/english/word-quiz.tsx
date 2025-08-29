@@ -157,9 +157,7 @@ export default function WordQuizPage() {
   return (
     <div className="p-4 max-w-xl mx-auto space-y-4">
       <h2 className="text-xl font-bold">문제 리뷰 {reviewIndex + 1} / {quiz.length}</h2>
-      <div className="p-2 bg-green-100 text-green-700 rounded">
-        채점이 완료되었어요! '완료'를 눌러 학습을 마치세요.
-      </div>
+
       <p>{q.question}</p>
       <ul className="space-y-2">
         {q.options.map((opt, i) => {
@@ -208,6 +206,9 @@ export default function WordQuizPage() {
           <p>{q.explanation}</p>
         </div>
       )}
+      {reviewIndex === quiz.length - 1 && <div className="p-2 bg-green-100 text-green-700 rounded">
+        채점이 완료되었어요! '완료'를 눌러 학습을 마치세요.
+      </div>}
       <div className="flex justify-between pt-4">
         <Button variant="outline" onClick={() => setReviewIndex((i) => Math.max(i - 1, 0))} disabled={reviewIndex === 0}>
           이전
