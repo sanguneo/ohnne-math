@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { useNavigate } from "react-router";
 import { Button } from "~/components/ui/button";
 
 interface QuizItem {
@@ -28,6 +29,7 @@ export default function WordQuizPage() {
   const [answers, setAnswers] = useState<(number | null)[]>([]);
   const [submitted, setSubmitted] = useState(false);
   const [reviewIndex, setReviewIndex] = useState(0);
+  const navigate = useNavigate();
 
   useEffect(() => {
     fetch(`${baseUrl}/word-quiz`)
@@ -93,9 +95,11 @@ export default function WordQuizPage() {
     }
   };
 
-  const nextReview = () => {
+  const nextReview = async () => {
     if (reviewIndex === quiz.length - 1) {
-      finishReview();
+      await finishReview();
+      alert("오늘의 단어학습을 완료했어요!");
+      navigate("/english");
     } else {
       setReviewIndex((i) => i + 1);
     }
@@ -152,6 +156,9 @@ export default function WordQuizPage() {
   return (
     <div className="p-4 max-w-xl mx-auto space-y-4">
       <h2 className="text-xl font-bold">문제 리뷰 {reviewIndex + 1} / {quiz.length}</h2>
+      <div className="p-2 bg-green-100 text-green-700 rounded">
+        채점이 완료되었어요! '완료'를 눌러 학습을 마치세요.
+      </div>
       <p>{q.question}</p>
       <ul className="space-y-2">
         {q.options.map((opt, i) => {
