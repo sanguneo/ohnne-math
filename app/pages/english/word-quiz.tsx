@@ -123,7 +123,8 @@ export default function WordQuizPage() {
                   checked={answers[current] === i}
                   onChange={() => handleSelect(i)}
                 />
-                {opt}
+                <span className="w-5 text-right">{String.fromCharCode(97 + i)})</span>
+                <span>{opt}</span>
               </label>
             </li>
           ))}
@@ -146,6 +147,7 @@ export default function WordQuizPage() {
 
   const q = quiz[reviewIndex];
   const userAnswer = answers[reviewIndex];
+  const correctAnswerIndex = q.answer - 1; // API provides 1-based index
 
   return (
     <div className="p-4 max-w-xl mx-auto space-y-4">
@@ -153,7 +155,7 @@ export default function WordQuizPage() {
       <p>{q.question}</p>
       <ul className="space-y-2">
         {q.options.map((opt, i) => {
-          const isCorrect = i === q.answer;
+          const isCorrect = i === correctAnswerIndex;
           const isSelected = i === userAnswer;
           return (
             <li key={i}>
@@ -164,7 +166,10 @@ export default function WordQuizPage() {
                   isSelected && !isCorrect ? "border-red-500" : ""
                 } ${isSelected ? "bg-gray-100" : ""}`}
               >
-                <span>{opt}</span>
+                <div className="flex items-center gap-2">
+                  <span className="w-5 text-right">{String.fromCharCode(97 + i)})</span>
+                  <span>{opt}</span>
+                </div>
                 {isCorrect ? (
                   <span className="text-green-500">✓</span>
                 ) : (
@@ -175,6 +180,18 @@ export default function WordQuizPage() {
           );
         })}
       </ul>
+      <div className="mt-4 space-y-1">
+        <div className="p-2 rounded bg-blue-50">
+          <span className="font-semibold">내 답:</span>{" "}
+          {userAnswer != null
+            ? `${String.fromCharCode(97 + userAnswer)}) ${q.options[userAnswer]}`
+            : "선택 안함"}
+        </div>
+        <div className="p-2 rounded bg-green-50">
+          <span className="font-semibold">정답:</span>{" "}
+          {`${String.fromCharCode(97 + correctAnswerIndex)}) ${q.options[correctAnswerIndex]}`}
+        </div>
+      </div>
       {q.explanation && (
         <div className="mt-4 p-2 border rounded bg-gray-50">
           <p className="font-semibold">해설</p>
