@@ -145,18 +145,41 @@ export default function WordQuizPage() {
 
   const q = quiz[reviewIndex];
   const userAnswer = answers[reviewIndex];
-  const isCorrect = userAnswer === q.answer;
 
   return (
     <div className="p-4 max-w-xl mx-auto space-y-4">
       <h2 className="text-xl font-bold">문제 리뷰 {reviewIndex + 1} / {quiz.length}</h2>
       <p>{q.question}</p>
-      <p className={isCorrect ? "text-green-600" : "text-red-600"}>
-        {isCorrect ? "정답입니다" : "틀렸습니다"}
-      </p>
-      <p>내 답: {userAnswer != null ? q.options[userAnswer] : "없음"}</p>
-      <p>정답: {q.options[q.answer]}</p>
-      {q.explanation && <p>해설: {q.explanation}</p>}
+      <ul className="space-y-2">
+        {q.options.map((opt, i) => {
+          const isCorrect = i === q.answer;
+          const isSelected = i === userAnswer;
+          return (
+            <li key={i}>
+              <div
+                className={`flex items-center justify-between p-2 border rounded ${
+                  isCorrect ? "border-green-500" : ""
+                } ${
+                  isSelected && !isCorrect ? "border-red-500" : ""
+                } ${isSelected ? "bg-gray-100" : ""}`}
+              >
+                <span>{opt}</span>
+                {isCorrect ? (
+                  <span className="text-green-500">✓</span>
+                ) : (
+                  isSelected && <span className="text-red-500">✕</span>
+                )}
+              </div>
+            </li>
+          );
+        })}
+      </ul>
+      {q.explanation && (
+        <div className="mt-4 p-2 border rounded bg-gray-50">
+          <p className="font-semibold">해설</p>
+          <p>{q.explanation}</p>
+        </div>
+      )}
       <div className="flex justify-between pt-4">
         <Button variant="outline" onClick={() => setReviewIndex((i) => Math.max(i - 1, 0))} disabled={reviewIndex === 0}>
           이전
