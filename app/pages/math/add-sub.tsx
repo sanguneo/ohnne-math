@@ -201,7 +201,8 @@ export default function MathBasicsApp() {
 
               <Button
                   onClick={generateProblems}
-                  className="bg-blue-500 hover:bg-blue-600 text-white text-xl px-8 py-4 rounded-full font-semibold shadow-lg"
+                  variant="primaryGradient"
+                  className="text-xl px-8 py-4 rounded-full font-semibold"
               >
                 {difficultyConfigs[difficulty].name} 단계 시작! 📝
               </Button>
@@ -277,7 +278,7 @@ export default function MathBasicsApp() {
                         <Button
                             onClick={checkAnswers}
                             disabled={!allAnswered}
-                            className="bg-green-500 hover:bg-green-600 text-white disabled:opacity-50"
+                            variant="successGradient"
                         >
                           <Check className="w-4 h-4 mr-2" />
                           채점하기
@@ -363,7 +364,8 @@ export default function MathBasicsApp() {
                     <div className="mt-6 flex flex-col sm:flex-row gap-4 justify-center">
                       <Button
                           onClick={resetProblems}
-                          className="bg-blue-500 hover:bg-blue-600 text-white px-6 py-3 rounded-full font-semibold"
+                          variant="primaryGradient"
+                          className="px-6 py-3 rounded-full font-semibold"
                       >
                         같은 난이도 다시하기
                       </Button>
@@ -372,7 +374,8 @@ export default function MathBasicsApp() {
                             setProblems([])
                             setShowResults(false)
                           }}
-                          className="bg-blue-500 hover:bg-blue-600 text-white px-6 py-3 rounded-full font-semibold"
+                          variant="primaryGradient"
+                          className="px-6 py-3 rounded-full font-semibold"
                       >
                         난이도 바꾸기
                       </Button>

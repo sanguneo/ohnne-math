@@ -77,9 +77,9 @@ export default function CoinCounting() {
                   {/* Counter */}
                   <div className="flex items-center justify-center gap-3 mb-4">
                     <Button
-                      variant="outline"
+                      variant="dangerGradient"
                       size="icon"
-                      className="h-12 w-12 rounded-full border-2 bg-transparent"
+                      className="h-12 w-12 rounded-full"
                       onClick={() => updateCoinCount(coin.value, -1)}
                       disabled={coinCounts[coin.value] === 0}
                     >
@@ -91,9 +91,9 @@ export default function CoinCounting() {
                     </div>
 
                     <Button
-                      variant="outline"
+                      variant="successGradient"
                       size="icon"
-                      className="h-12 w-12 rounded-full border-2 bg-transparent"
+                      className="h-12 w-12 rounded-full"
                       onClick={() => updateCoinCount(coin.value, 1)}
                     >
                       <Plus className="h-6 w-6" />

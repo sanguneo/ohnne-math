@@ -47,7 +47,7 @@ export default function LearnedWordsPage() {
                 <p className="font-semibold">{w.word}</p>
                 <p className="text-sm text-gray-600">{w.note}</p>
               </div>
-              <Button variant="destructive" size="sm" onClick={() => handleDelete(w.id)}>
+              <Button variant="dangerGradient" size="sm" onClick={() => handleDelete(w.id)}>
                 삭제
               </Button>
             </li>

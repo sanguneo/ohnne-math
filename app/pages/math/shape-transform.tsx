@@ -310,7 +310,8 @@ export default function ShapeTransformationApp() {
 
               <Button
                   onClick={generateProblem}
-                  className="bg-orange-500 hover:bg-orange-600 text-white text-xl px-8 py-4 rounded-full font-semibold shadow-lg"
+                  variant="primaryGradient"
+                  className="text-xl px-8 py-4 rounded-full font-semibold shadow-lg"
               >
                 문제 시작! Start! 🎯
               </Button>
@@ -372,7 +373,8 @@ export default function ShapeTransformationApp() {
                       <Button
                           onClick={checkAnswer}
                           disabled={selectedAnswer === null}
-                          className="bg-green-500 hover:bg-green-600 text-white px-8 py-3 rounded-full font-semibold disabled:opacity-50"
+                          variant="successGradient"
+                          className="px-8 py-3 rounded-full font-semibold"
                       >
                         확인하기 Check! ✓
                       </Button>
@@ -402,7 +404,8 @@ export default function ShapeTransformationApp() {
 
                     <Button
                             onClick={generateProblem}
-                            className="bg-orange-500 hover:bg-orange-600 text-white px-8 py-3 rounded-full font-semibold"
+                            variant="primaryGradient"
+                            className="px-8 py-3 rounded-full font-semibold"
                         >
                           <RefreshCw className="w-5 h-5 mr-2" />
                           다음 문제 Next!

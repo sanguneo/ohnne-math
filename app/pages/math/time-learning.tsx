@@ -176,7 +176,8 @@ export default function TimeLearningApp() {
 
               <Button
                 onClick={startNewQuestion}
-                className="bg-green-500 hover:bg-green-600 text-white text-lg md:text-xl px-6 md:px-8 py-3 md:py-4 rounded-full font-semibold shadow-lg"
+                variant="successGradient"
+                className="text-lg md:text-xl px-6 md:px-8 py-3 md:py-4 rounded-full font-semibold shadow-lg"
               >
                 시작하기 Start! 🕐
               </Button>
@@ -214,11 +215,8 @@ export default function TimeLearningApp() {
                       <Button
                         key={hour}
                         onClick={() => setSelectedHour(hour)}
-                        className={`h-12 text-lg font-bold rounded-lg border-2 transition-all ${
-                          selectedHour === hour
-                            ? "bg-green-500 text-white border-green-600 shadow-lg scale-105"
-                            : "bg-white text-gray-700 border-gray-300 hover:border-green-400 hover:bg-green-50"
-                        }`}
+                        variant={selectedHour === hour ? "successGradient" : "outline"}
+                        className="h-12 text-lg font-bold rounded-lg border-2 transition-all"
                       >
                         {hour}
                       </Button>
@@ -234,11 +232,8 @@ export default function TimeLearningApp() {
                       <Button
                         key={minute}
                         onClick={() => setSelectedMinute(minute)}
-                        className={`h-12 text-lg font-bold rounded-lg border-2 transition-all ${
-                          selectedMinute === minute
-                            ? "bg-green-500 text-white border-green-600 shadow-lg scale-105"
-                            : "bg-white text-gray-700 border-gray-300 hover:border-green-400 hover:bg-green-50"
-                        }`}
+                        variant={selectedMinute === minute ? "successGradient" : "outline"}
+                        className="h-12 text-lg font-bold rounded-lg border-2 transition-all"
                       >
                         {minute.toString().padStart(2, "0")}
                       </Button>
@@ -264,7 +259,8 @@ export default function TimeLearningApp() {
                     <Button
                       onClick={checkAnswer}
                       disabled={selectedHour === null || selectedMinute === null}
-                      className="bg-purple-500 hover:bg-purple-600 text-white px-8 py-3 rounded-full font-semibold disabled:opacity-50"
+                      variant="primaryGradient"
+                      className="px-8 py-3 rounded-full font-semibold"
                     >
                       확인하기 Check! ✓
                     </Button>
@@ -298,7 +294,8 @@ export default function TimeLearningApp() {
 
                       <Button
                         onClick={startNewQuestion}
-                        className="bg-green-500 hover:bg-green-600 text-white px-8 py-3 rounded-full font-semibold"
+                        variant="successGradient"
+                        className="px-8 py-3 rounded-full font-semibold"
                       >
                         <RefreshCw className="w-5 h-5 mr-2" />
                         다음 문제 Next!

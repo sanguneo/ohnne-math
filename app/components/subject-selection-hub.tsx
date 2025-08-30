@@ -76,15 +76,16 @@ export default function SubjectSelectionHub() {
                   <p className="text-sm text-gray-700 text-center mb-4 min-h-[40px]">
                     {subject.description}
                   </p>
-                  <Button
-                    className="w-full bg-white/80 text-gray-800 hover:bg-white border-2 border-gray-200 font-semibold"
-                    onClick={(e) => {
-                      e.stopPropagation();
-                      handleClick(subject);
-                    }}
-                  >
-                    시작하기 Start Learning 📚
-                  </Button>
+                    <Button
+                      variant="primaryGradient"
+                      className="w-full font-semibold"
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        handleClick(subject);
+                      }}
+                    >
+                      시작하기 Start Learning 📚
+                    </Button>
                 </CardContent>
               </Card>
             );
