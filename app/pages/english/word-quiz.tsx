@@ -139,11 +139,11 @@ export default function WordQuizPage() {
             이전
           </Button>
           {current === quiz.length - 1 ? (
-            <Button onClick={handleSubmit} disabled={!allAnswered}>
+            <Button variant="primaryGradient" onClick={handleSubmit} disabled={!allAnswered}>
               채점
             </Button>
           ) : (
-            <Button onClick={handleNext}>다음</Button>
+            <Button variant="primaryGradient" onClick={handleNext}>다음</Button>
           )}
         </div>
       </div>
@@ -213,7 +213,7 @@ export default function WordQuizPage() {
         <Button variant="outline" onClick={() => setReviewIndex((i) => Math.max(i - 1, 0))} disabled={reviewIndex === 0}>
           이전
         </Button>
-        <Button onClick={nextReview}>
+        <Button variant="primaryGradient" onClick={nextReview}>
           {reviewIndex === quiz.length - 1 ? "완료" : "다음"}
         </Button>
       </div>

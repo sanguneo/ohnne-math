@@ -310,11 +310,8 @@ export default function SplittingCombiningApp() {
                     <Button
                       key={level}
                       onClick={() => setDifficulty(level as 2 | 3 | 4)}
-                      className={`px-4 py-2 sm:px-6 sm:py-3 rounded-full font-semibold text-sm sm:text-base ${
-                        difficulty === level
-                          ? "bg-blue-500 text-white"
-                          : "bg-gray-200 text-gray-700 hover:bg-gray-300"
-                      }`}
+                      variant={difficulty === level ? "primaryGradient" : "outline"}
+                      className="px-4 py-2 sm:px-6 sm:py-3 rounded-full font-semibold text-sm sm:text-base"
                     >
                       {level}개로 나누기
                     </Button>
@@ -324,7 +321,8 @@ export default function SplittingCombiningApp() {
 
               <Button
                 onClick={startNewProblem}
-                className="bg-blue-500 hover:bg-blue-600 text-white text-lg md:text-xl px-6 md:px-8 py-3 md:py-4 rounded-full font-semibold shadow-lg"
+                variant="primaryGradient"
+                className="text-lg md:text-xl px-6 md:px-8 py-3 md:py-4 rounded-full font-semibold shadow-lg"
               >
                 시작하기 Start! 🚀
               </Button>
@@ -355,11 +353,8 @@ export default function SplittingCombiningApp() {
                     <Button
                       key={number}
                       onClick={() => handleNumberSelect(number)}
-                      className={`h-12 sm:h-14 text-base sm:text-lg font-bold rounded-xl border-2 transition-all ${
-                        userAnswer === number
-                          ? "bg-blue-500 text-white border-blue-600 shadow-lg scale-105"
-                          : "bg-white text-gray-700 border-gray-300 hover:border-blue-400 hover:bg-blue-50"
-                      }`}
+                      variant={userAnswer === number ? "primaryGradient" : "outline"}
+                      className="h-12 sm:h-14 text-base sm:text-lg font-bold rounded-xl border-2 transition-all"
                     >
                       {number}
                     </Button>
@@ -372,7 +367,8 @@ export default function SplittingCombiningApp() {
                     <Button
                       onClick={checkAnswer}
                       disabled={userAnswer === null}
-                      className="bg-green-500 hover:bg-green-600 text-white px-8 md:px-16 py-4 md:py-6 rounded-sm font-semibold disabled:opacity-50 text-base md:text-lg"
+                      variant="successGradient"
+                      className="px-8 md:px-16 py-4 md:py-6 rounded-sm font-semibold text-base md:text-lg"
                     >
                       확인하기 Check! ✓
                     </Button>
@@ -398,7 +394,8 @@ export default function SplittingCombiningApp() {
 
                       <Button
                         onClick={startNewProblem}
-                        className="bg-blue-500 hover:bg-blue-600 text-white px-8 md:px-16 py-4 md:py-6 rounded-sm font-semibold text-base md:text-lg"
+                        variant="primaryGradient"
+                        className="px-8 md:px-16 py-4 md:py-6 rounded-sm font-semibold text-base md:text-lg"
                       >
                         다음 문제 Next!
                       </Button>

@@ -232,7 +232,8 @@ export default function EducationalToysHub({ category }: EducationalToysHubProps
 
                   {toy.available ? (
                     <Button
-                      className="w-full bg-white/80 text-gray-800 hover:bg-white border-2 border-gray-200 font-semibold"
+                      variant="primaryGradient"
+                      className="w-full font-semibold"
                       onClick={(e) => {
                         e.stopPropagation()
                         handleToyClick(toy)

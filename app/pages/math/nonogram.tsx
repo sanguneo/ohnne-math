@@ -244,9 +244,8 @@ export default function NonogramApp() {
                                     <Button
                                         key={size}
                                         onClick={() => setDifficulty(size as Difficulty)}
-                                        className={`px-4 py-2 sm:px-6 sm:py-3 rounded-full font-semibold ${
-                                            difficulty === size ? "bg-indigo-500 text-white" : "bg-gray-200 text-gray-700 hover:bg-gray-300"
-                                        }`}
+                                        variant={difficulty === size ? "primaryGradient" : "outline"}
+                                        className="px-4 py-2 sm:px-6 sm:py-3 rounded-full font-semibold"
                                     >
                                         {size}×{size}
                                     </Button>
@@ -256,7 +255,8 @@ export default function NonogramApp() {
 
                         <Button
                             onClick={generateProblem}
-                            className="bg-indigo-500 hover:bg-indigo-600 text-white text-lg sm:text-xl px-6 sm:px-8 py-3 sm:py-4 rounded-full font-semibold shadow-lg"
+                            variant="primaryGradient"
+                            className="text-lg sm:text-xl px-6 sm:px-8 py-3 sm:py-4 rounded-full font-semibold shadow-lg"
                         >
                             퍼즐 시작! Start Puzzle! 🧩
                         </Button>
@@ -300,11 +300,11 @@ export default function NonogramApp() {
                                         <Lightbulb className="w-4 h-4 mr-2" />
                                         {showSolution ? "답 숨기기" : "답 보기"}
                                     </Button>
-                                    <Button onClick={checkCompletion} className="bg-green-500 hover:bg-green-600 text-white">
+                                    <Button onClick={checkCompletion} variant="successGradient">
                                         <Check className="w-4 h-4 mr-2" />
                                         확인
                                     </Button>
-                                    <Button onClick={generateProblem} className="bg-indigo-500 hover:bg-indigo-600 text-white">
+                                    <Button onClick={generateProblem} variant="primaryGradient">
                                         <RefreshCw className="w-4 h-4 mr-2" />새 퍼즐
                                     </Button>
                                 </div>
