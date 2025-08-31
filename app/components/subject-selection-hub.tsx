@@ -3,7 +3,7 @@
 import { useNavigate } from "react-router";
 import { Card, CardContent, CardHeader, CardTitle } from "~/components/ui/card";
 import { Button } from "~/components/ui/button";
-import { Calculator, BookOpen, Star, Heart } from "lucide-react";
+import { Calculator, BookOpen } from "lucide-react";
 
 const subjects = [
   {
@@ -12,8 +12,8 @@ const subjects = [
     subtitle: "Math",
     description: "재미있는 수학 놀이",
     icon: Calculator,
-    color: "bg-gradient-to-br from-blue-100 to-cyan-100 border-blue-300",
-    iconColor: "text-blue-600",
+    color: "bg-gradient-to-r from-sky-400 to-blue-600",
+    iconColor: "text-white",
     path: "/math",
   },
   {
@@ -22,8 +22,8 @@ const subjects = [
     subtitle: "English",
     description: "재미있는 영어 놀이",
     icon: BookOpen,
-    color: "bg-gradient-to-br from-purple-100 to-violet-100 border-purple-300",
-    iconColor: "text-purple-600",
+    color: "bg-gradient-to-r from-purple-400 to-fuchsia-600",
+    iconColor: "text-white",
     path: "/english",
   },
 ];
@@ -35,55 +35,39 @@ export default function SubjectSelectionHub() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-purple-50 via-pink-50 to-yellow-50 p-4">
-      <div className="max-w-4xl mx-auto">
-        <div className="text-center mb-8">
-          <div className="flex justify-center items-center gap-3 mb-4">
-            <Star className="w-6 h-6 sm:w-8 sm:h-8 text-yellow-500" />
-            <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-800">
-              어떤 과목을 배울까요?
-            </h1>
-            <Star className="w-6 h-6 sm:w-8 sm:h-8 text-yellow-500" />
-          </div>
-          <p className="text-lg sm:text-xl text-gray-600 mb-2">Choose a Subject</p>
-          <p className="text-base sm:text-lg text-gray-500">재미있는 학습을 시작해요</p>
-          <div className="flex justify-center mt-4">
-            <Heart className="w-6 h-6 text-red-400 animate-pulse" />
-          </div>
-        </div>
+    <div className="min-h-screen bg-gradient-to-br from-purple-50 via-pink-50 to-yellow-50 p-6">
+      <div className="max-w-4xl mx-auto space-y-8">
+        <h1 className="text-2xl sm:text-3xl font-bold text-gray-800 text-center">
+          어떤 과목을 배울까요?
+        </h1>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div className="grid grid-cols-1 gap-6">
           {subjects.map((subject) => {
             const IconComponent = subject.icon;
             return (
               <Card
                 key={subject.id}
-                className={`${subject.color} border-2 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 cursor-pointer`}
+                className={`${subject.color} text-white cursor-pointer hover:shadow-xl transition-transform hover:scale-[1.02]`}
                 onClick={() => handleClick(subject)}
               >
-                <CardHeader className="text-center pb-3">
-                  <div className="flex justify-center mb-3">
-                    <div className="w-16 h-16 rounded-full bg-white/80 flex items-center justify-center shadow-md">
-                      <IconComponent className={`w-8 h-8 ${subject.iconColor}`} />
-                    </div>
-                  </div>
-                  <CardTitle className="text-lg font-bold text-gray-800">
+                <CardHeader className="flex items-center justify-between pb-0 text-white">
+                  <CardTitle className="text-xl font-semibold">
                     {subject.title}
                   </CardTitle>
-                  <p className="text-sm font-medium text-gray-600">{subject.subtitle}</p>
+                  <IconComponent className="w-10 h-10" />
                 </CardHeader>
+                <CardContent>
+                  <p className="text-sm opacity-90">{subject.description}</p>
+                </CardContent>
                 <CardContent className="pt-0">
-                  <p className="text-sm text-gray-700 text-center mb-4 min-h-[40px]">
-                    {subject.description}
-                  </p>
                   <Button
-                    className="w-full bg-white/80 text-gray-800 hover:bg-white border-2 border-gray-200 font-semibold"
+                    className="mt-4 bg-white/90 text-gray-800 hover:bg-white"
                     onClick={(e) => {
                       e.stopPropagation();
                       handleClick(subject);
                     }}
                   >
-                    시작하기 Start Learning 📚
+                    시작하기
                   </Button>
                 </CardContent>
               </Card>

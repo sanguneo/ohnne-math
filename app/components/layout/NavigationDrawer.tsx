@@ -16,28 +16,33 @@ export default function NavigationDrawer({ open, onClose }: NavigationDrawerProp
         onClick={onClose}
       />
       <nav
-        className={`absolute left-0 top-0 h-full w-64 bg-white shadow-lg transform transition-transform ${
+        className={`absolute left-0 top-0 h-full w-64 bg-white rounded-r-2xl shadow-xl transform transition-transform ${
           open ? "translate-x-0" : "-translate-x-full"
         }`}
       >
-        <div className="p-4 space-y-4">
-          <button onClick={onClose} className="flex items-center gap-2">
-            <X className="w-5 h-5" /> Close
+        <div className="p-6 space-y-6">
+          <button onClick={onClose} className="flex items-center gap-2 text-gray-600">
+            <X className="w-5 h-5" /> 닫기
           </button>
-          <ul className="space-y-2">
+          <ul className="space-y-4 text-lg">
             <li>
-              <Link to="/" onClick={onClose} className="block py-1">
-                Home
+              <Link to="/" onClick={onClose} className="block hover:text-blue-600">
+                홈
               </Link>
             </li>
             <li>
-              <Link to="/math" onClick={onClose} className="block py-1">
-                Math
+              <Link to="/english" onClick={onClose} className="block hover:text-blue-600">
+                영어
               </Link>
             </li>
             <li>
-              <Link to="/english" onClick={onClose} className="block py-1">
-                English
+              <Link to="/math" onClick={onClose} className="block hover:text-blue-600">
+                수학
+              </Link>
+            </li>
+            <li>
+              <Link to="/settings" onClick={onClose} className="block hover:text-blue-600">
+                설정
               </Link>
             </li>
           </ul>
