@@ -201,7 +201,7 @@ export default function MathBasicsApp() {
 
               <Button
                   onClick={generateProblems}
-                  variant="primaryGradient"
+                  variant="primary"
                   className="text-xl px-8 py-4 rounded-full font-semibold"
               >
                 {difficultyConfigs[difficulty].name} 단계 시작! 📝
@@ -278,7 +278,7 @@ export default function MathBasicsApp() {
                         <Button
                             onClick={checkAnswers}
                             disabled={!allAnswered}
-                            variant="successGradient"
+                            variant="success"
                         >
                           <Check className="w-4 h-4 mr-2" />
                           채점하기
@@ -364,7 +364,7 @@ export default function MathBasicsApp() {
                     <div className="mt-6 flex flex-col sm:flex-row gap-4 justify-center">
                       <Button
                           onClick={resetProblems}
-                          variant="primaryGradient"
+                          variant="primary"
                           className="px-6 py-3 rounded-full font-semibold"
                       >
                         같은 난이도 다시하기
@@ -374,7 +374,7 @@ export default function MathBasicsApp() {
                             setProblems([])
                             setShowResults(false)
                           }}
-                          variant="primaryGradient"
+                          variant="primary"
                           className="px-6 py-3 rounded-full font-semibold"
                       >
                         난이도 바꾸기

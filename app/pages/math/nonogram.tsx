@@ -244,7 +244,7 @@ export default function NonogramApp() {
                                     <Button
                                         key={size}
                                         onClick={() => setDifficulty(size as Difficulty)}
-                                        variant={difficulty === size ? "primaryGradient" : "outline"}
+                                        variant={difficulty === size ? "primary" : "outline"}
                                         className="px-4 py-2 sm:px-6 sm:py-3 rounded-full font-semibold"
                                     >
                                         {size}×{size}
@@ -255,7 +255,7 @@ export default function NonogramApp() {
 
                         <Button
                             onClick={generateProblem}
-                            variant="primaryGradient"
+                            variant="primary"
                             className="text-lg sm:text-xl px-6 sm:px-8 py-3 sm:py-4 rounded-full font-semibold shadow-lg"
                         >
                             퍼즐 시작! Start Puzzle! 🧩
@@ -300,11 +300,11 @@ export default function NonogramApp() {
                                         <Lightbulb className="w-4 h-4 mr-2" />
                                         {showSolution ? "답 숨기기" : "답 보기"}
                                     </Button>
-                                    <Button onClick={checkCompletion} variant="successGradient">
+                                    <Button onClick={checkCompletion} variant="success">
                                         <Check className="w-4 h-4 mr-2" />
                                         확인
                                     </Button>
-                                    <Button onClick={generateProblem} variant="primaryGradient">
+                                    <Button onClick={generateProblem} variant="primary">
                                         <RefreshCw className="w-4 h-4 mr-2" />새 퍼즐
                                     </Button>
                                 </div>

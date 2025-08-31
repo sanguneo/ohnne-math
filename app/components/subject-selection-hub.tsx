@@ -77,7 +77,7 @@ export default function SubjectSelectionHub() {
                     {subject.description}
                   </p>
                     <Button
-                      variant="primaryGradient"
+                      variant="primary"
                       className="w-full font-semibold"
                       onClick={(e) => {
                         e.stopPropagation();

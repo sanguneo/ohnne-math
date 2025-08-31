@@ -176,7 +176,7 @@ export default function TimeLearningApp() {
 
               <Button
                 onClick={startNewQuestion}
-                variant="successGradient"
+                variant="success"
                 className="text-lg md:text-xl px-6 md:px-8 py-3 md:py-4 rounded-full font-semibold shadow-lg"
               >
                 시작하기 Start! 🕐
@@ -215,7 +215,7 @@ export default function TimeLearningApp() {
                       <Button
                         key={hour}
                         onClick={() => setSelectedHour(hour)}
-                        variant={selectedHour === hour ? "successGradient" : "outline"}
+                        variant={selectedHour === hour ? "success" : "outline"}
                         className="h-12 text-lg font-bold rounded-lg border-2 transition-all"
                       >
                         {hour}
@@ -232,7 +232,7 @@ export default function TimeLearningApp() {
                       <Button
                         key={minute}
                         onClick={() => setSelectedMinute(minute)}
-                        variant={selectedMinute === minute ? "successGradient" : "outline"}
+                        variant={selectedMinute === minute ? "success" : "outline"}
                         className="h-12 text-lg font-bold rounded-lg border-2 transition-all"
                       >
                         {minute.toString().padStart(2, "0")}
@@ -259,7 +259,7 @@ export default function TimeLearningApp() {
                     <Button
                       onClick={checkAnswer}
                       disabled={selectedHour === null || selectedMinute === null}
-                      variant="primaryGradient"
+                      variant="primary"
                       className="px-8 py-3 rounded-full font-semibold"
                     >
                       확인하기 Check! ✓
@@ -294,7 +294,7 @@ export default function TimeLearningApp() {
 
                       <Button
                         onClick={startNewQuestion}
-                        variant="successGradient"
+                        variant="success"
                         className="px-8 py-3 rounded-full font-semibold"
                       >
                         <RefreshCw className="w-5 h-5 mr-2" />

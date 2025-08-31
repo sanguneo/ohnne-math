@@ -310,7 +310,7 @@ export default function ShapeTransformationApp() {
 
               <Button
                   onClick={generateProblem}
-                  variant="primaryGradient"
+                  variant="primary"
                   className="text-xl px-8 py-4 rounded-full font-semibold shadow-lg"
               >
                 문제 시작! Start! 🎯
@@ -373,7 +373,7 @@ export default function ShapeTransformationApp() {
                       <Button
                           onClick={checkAnswer}
                           disabled={selectedAnswer === null}
-                          variant="successGradient"
+                          variant="success"
                           className="px-8 py-3 rounded-full font-semibold"
                       >
                         확인하기 Check! ✓
@@ -404,7 +404,7 @@ export default function ShapeTransformationApp() {
 
                     <Button
                             onClick={generateProblem}
-                            variant="primaryGradient"
+                            variant="primary"
                             className="px-8 py-3 rounded-full font-semibold"
                         >
                           <RefreshCw className="w-5 h-5 mr-2" />

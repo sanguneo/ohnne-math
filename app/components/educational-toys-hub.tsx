@@ -232,7 +232,7 @@ export default function EducationalToysHub({ category }: EducationalToysHubProps
 
                   {toy.available ? (
                     <Button
-                      variant="primaryGradient"
+                      variant="primary"
                       className="w-full font-semibold"
                       onClick={(e) => {
                         e.stopPropagation()

@@ -310,7 +310,7 @@ export default function SplittingCombiningApp() {
                     <Button
                       key={level}
                       onClick={() => setDifficulty(level as 2 | 3 | 4)}
-                      variant={difficulty === level ? "primaryGradient" : "outline"}
+                      variant={difficulty === level ? "primary" : "outline"}
                       className="px-4 py-2 sm:px-6 sm:py-3 rounded-full font-semibold text-sm sm:text-base"
                     >
                       {level}개로 나누기
@@ -321,7 +321,7 @@ export default function SplittingCombiningApp() {
 
               <Button
                 onClick={startNewProblem}
-                variant="primaryGradient"
+                variant="primary"
                 className="text-lg md:text-xl px-6 md:px-8 py-3 md:py-4 rounded-full font-semibold shadow-lg"
               >
                 시작하기 Start! 🚀
@@ -353,7 +353,7 @@ export default function SplittingCombiningApp() {
                     <Button
                       key={number}
                       onClick={() => handleNumberSelect(number)}
-                      variant={userAnswer === number ? "primaryGradient" : "outline"}
+                      variant={userAnswer === number ? "primary" : "outline"}
                       className="h-12 sm:h-14 text-base sm:text-lg font-bold rounded-xl border-2 transition-all"
                     >
                       {number}
@@ -367,7 +367,7 @@ export default function SplittingCombiningApp() {
                     <Button
                       onClick={checkAnswer}
                       disabled={userAnswer === null}
-                      variant="successGradient"
+                      variant="success"
                       className="px-8 md:px-16 py-4 md:py-6 rounded-sm font-semibold text-base md:text-lg"
                     >
                       확인하기 Check! ✓
@@ -394,7 +394,7 @@ export default function SplittingCombiningApp() {
 
                       <Button
                         onClick={startNewProblem}
-                        variant="primaryGradient"
+                        variant="primary"
                         className="px-8 md:px-16 py-4 md:py-6 rounded-sm font-semibold text-base md:text-lg"
                       >
                         다음 문제 Next!
