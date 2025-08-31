@@ -5,28 +5,28 @@ import { Card, CardContent, CardHeader, CardTitle } from "~/components/ui/card";
 import { Button } from "~/components/ui/button";
 import { Calculator, BookOpen } from "lucide-react";
 
-const subjects = [
-  {
-    id: "math",
-    title: "수학",
-    subtitle: "Math",
-    description: "재미있는 수학 놀이",
-    icon: Calculator,
-    color: "bg-gradient-to-r from-sky-400 to-blue-600",
+  const subjects = [
+    {
+      id: "math",
+      title: "수학",
+      subtitle: "Math",
+      description: "재미있는 수학 놀이",
+      icon: Calculator,
+    color: "bg-gradient-to-r from-indigo-500 to-blue-700",
     iconColor: "text-white",
-    path: "/math",
-  },
-  {
-    id: "english",
-    title: "영어",
-    subtitle: "English",
-    description: "재미있는 영어 놀이",
-    icon: BookOpen,
-    color: "bg-gradient-to-r from-purple-400 to-fuchsia-600",
+      path: "/math",
+    },
+    {
+      id: "english",
+      title: "영어",
+      subtitle: "English",
+      description: "재미있는 영어 놀이",
+      icon: BookOpen,
+    color: "bg-gradient-to-r from-rose-500 to-pink-600",
     iconColor: "text-white",
-    path: "/english",
-  },
-];
+      path: "/english",
+    },
+  ];
 
 export default function SubjectSelectionHub() {
   const navigate = useNavigate();
@@ -35,7 +35,7 @@ export default function SubjectSelectionHub() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-purple-50 via-pink-50 to-yellow-50 p-6">
+    <div className="min-h-screen bg-gradient-to-br from-indigo-50 via-purple-50 to-pink-50 p-6">
       <div className="max-w-4xl mx-auto space-y-8">
         <h1 className="text-2xl sm:text-3xl font-bold text-gray-800 text-center">
           어떤 과목을 배울까요?

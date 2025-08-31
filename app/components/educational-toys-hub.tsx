@@ -28,8 +28,8 @@ const toyPages = [
     title: "가르기와 모으기 🔢",
     description: "가르기와 모으기로 숫자 연산을 배워요",
     icon: Network,
-    color: "bg-gradient-to-br from-blue-100 to-cyan-100 border-blue-300",
-    iconColor: "text-blue-600",
+    color: "bg-gradient-to-br from-indigo-100 to-blue-100 border-indigo-200",
+    iconColor: "text-indigo-600",
     available: true,
     path: "/math/splitting-combining",
     category: "math",
@@ -39,8 +39,8 @@ const toyPages = [
     title: "동전 세기",
     description: "동전을 이용해 10단위 더하기를 배워요",
     icon: Coins,
-    color: "bg-gradient-to-br from-yellow-100 to-amber-100 border-yellow-300",
-    iconColor: "text-yellow-600",
+    color: "bg-gradient-to-br from-indigo-100 to-blue-100 border-indigo-200",
+    iconColor: "text-indigo-600",
     available: true,
     path: "/math/coin-counting",
     category: "math",
@@ -50,8 +50,8 @@ const toyPages = [
     title: "시간 배우기",
     description: "시계 종류에 따라 시간을 배워요",
     icon: Clock,
-    color: "bg-gradient-to-br from-green-100 to-emerald-100 border-green-300",
-    iconColor: "text-green-600",
+    color: "bg-gradient-to-br from-indigo-100 to-blue-100 border-indigo-200",
+    iconColor: "text-indigo-600",
     available: true,
     path: "/math/time-learning",
     category: "math",
@@ -61,8 +61,8 @@ const toyPages = [
     title: "덧셈뺄셈",
     description: "Addition, subtraction, and number recognition games",
     icon: Calculator,
-    color: "bg-gradient-to-br from-blue-100 to-cyan-100 border-blue-300",
-    iconColor: "text-blue-600",
+    color: "bg-gradient-to-br from-indigo-100 to-blue-100 border-indigo-200",
+    iconColor: "text-indigo-600",
     available: true,
     path: "/math/add-sub",
     category: "math",
@@ -73,8 +73,8 @@ const toyPages = [
     subtitle: "Shape Puzzle",
     description: "Learn geometry basics",
     icon: Puzzle,
-    color: "bg-gradient-to-br from-orange-100 to-red-100 border-orange-300",
-    iconColor: "text-orange-600",
+    color: "bg-gradient-to-br from-indigo-100 to-blue-100 border-indigo-200",
+    iconColor: "text-indigo-600",
     available: true,
     path: "/math/shape-transform",
     category: "math",
@@ -84,8 +84,8 @@ const toyPages = [
     title: "기초 수학",
     description: "Addition, subtraction, and number recognition games",
     icon: Calculator,
-    color: "bg-gradient-to-br from-blue-100 to-cyan-100 border-blue-300",
-    iconColor: "text-blue-600",
+    color: "bg-gradient-to-br from-indigo-100 to-blue-100 border-indigo-200",
+    iconColor: "text-indigo-600",
     available: false,
     path: "/math/math-basics",
     category: "math",
@@ -96,7 +96,7 @@ const toyPages = [
     subtitle: "Nonogram",
     description: "Complete pictures using number clues in grid puzzles",
     icon: Grid3X3,
-    color: "bg-gradient-to-br from-indigo-100 to-purple-100 border-indigo-300",
+    color: "bg-gradient-to-br from-indigo-100 to-blue-100 border-indigo-200",
     iconColor: "text-indigo-600",
     available: true,
     path: "/math/nonogram",
@@ -108,8 +108,8 @@ const toyPages = [
     subtitle: "Word Quiz",
     description: "오늘의 단어 퀴즈로 영어를 배우세요",
     icon: BookOpen,
-    color: "bg-gradient-to-br from-purple-100 to-violet-100 border-purple-300",
-    iconColor: "text-purple-600",
+    color: "bg-gradient-to-br from-rose-100 to-pink-100 border-rose-200",
+    iconColor: "text-rose-600",
     available: true,
     path: "/english/word-quiz",
     category: "english",
@@ -120,8 +120,8 @@ const toyPages = [
     subtitle: "Learned Words",
     description: "학습한 단어를 복습해요",
     icon: Star,
-    color: "bg-gradient-to-br from-yellow-100 to-amber-100 border-yellow-300",
-    iconColor: "text-yellow-600",
+    color: "bg-gradient-to-br from-rose-100 to-pink-100 border-rose-200",
+    iconColor: "text-rose-600",
     available: true,
     path: "/english/learned-words",
     category: "english",
@@ -132,8 +132,8 @@ const toyPages = [
     subtitle: "Color Play",
     description: "Mix colors and learn about primary and secondary colors",
     icon: Palette,
-    color: "bg-gradient-to-br from-pink-100 to-rose-100 border-pink-300",
-    iconColor: "text-pink-600",
+    color: "bg-gradient-to-br from-rose-100 to-pink-100 border-rose-200",
+    iconColor: "text-rose-600",
     available: false,
     path: "/english/color-mixing",
     category: "english",
@@ -144,8 +144,8 @@ const toyPages = [
     subtitle: "Alphabet Game",
     description: "Learn English and Korean letters through fun activities",
     icon: BookOpen,
-    color: "bg-gradient-to-br from-purple-100 to-violet-100 border-purple-300",
-    iconColor: "text-purple-600",
+    color: "bg-gradient-to-br from-rose-100 to-pink-100 border-rose-200",
+    iconColor: "text-rose-600",
     available: false,
     path: "/english/alphabet-game",
     category: "english",
@@ -156,8 +156,8 @@ const toyPages = [
     subtitle: "Music Maker",
     description: "Create simple melodies and learn about musical notes",
     icon: Music,
-    color: "bg-gradient-to-br from-indigo-100 to-blue-100 border-indigo-300",
-    iconColor: "text-indigo-600",
+    color: "bg-gradient-to-br from-rose-100 to-pink-100 border-rose-200",
+    iconColor: "text-rose-600",
     available: false,
     path: "/english/music-maker",
     category: "english",
@@ -168,8 +168,8 @@ const toyPages = [
     subtitle: "World Explorer",
     description: "Learn about different countries and their cultures",
     icon: Globe,
-    color: "bg-gradient-to-br from-teal-100 to-cyan-100 border-teal-300",
-    iconColor: "text-teal-600",
+    color: "bg-gradient-to-br from-rose-100 to-pink-100 border-rose-200",
+    iconColor: "text-rose-600",
     available: false,
     path: "/english/world-explorer",
     category: "english",
@@ -186,7 +186,7 @@ export default function EducationalToysHub({ category }: EducationalToysHubProps
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-purple-50 via-pink-50 to-yellow-50 p-4">
+    <div className="min-h-screen bg-gradient-to-br from-indigo-50 via-purple-50 to-pink-50 p-4">
       <div className="max-w-6xl mx-auto">
         {/* Header */}
         <div className="text-center mb-8">
@@ -198,7 +198,7 @@ export default function EducationalToysHub({ category }: EducationalToysHubProps
           <p className="text-lg sm:text-xl text-gray-600 mb-2">Educational Playground</p>
           <p className="text-base sm:text-lg text-gray-500">재미있게 배우는 어린이 학습 게임</p>
           <div className="flex justify-center mt-4">
-            <Heart className="w-6 h-6 text-red-400 animate-pulse" />
+            <Heart className="w-6 h-6 text-rose-400 animate-pulse" />
           </div>
         </div>
 

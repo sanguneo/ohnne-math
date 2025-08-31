@@ -26,22 +26,22 @@ export default function NavigationDrawer({ open, onClose }: NavigationDrawerProp
           </button>
           <ul className="space-y-4 text-lg">
             <li>
-              <Link to="/" onClick={onClose} className="block hover:text-blue-600">
+              <Link to="/" onClick={onClose} className="block hover:text-indigo-600">
                 홈
               </Link>
             </li>
             <li>
-              <Link to="/english" onClick={onClose} className="block hover:text-blue-600">
+              <Link to="/english" onClick={onClose} className="block hover:text-indigo-600">
                 영어
               </Link>
             </li>
             <li>
-              <Link to="/math" onClick={onClose} className="block hover:text-blue-600">
+              <Link to="/math" onClick={onClose} className="block hover:text-indigo-600">
                 수학
               </Link>
             </li>
             <li>
-              <Link to="/settings" onClick={onClose} className="block hover:text-blue-600">
+              <Link to="/settings" onClick={onClose} className="block hover:text-indigo-600">
                 설정
               </Link>
             </li>

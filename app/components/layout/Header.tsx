@@ -48,7 +48,7 @@ export default function Header({
           </div>
 
           <div className="flex items-center gap-2 text-center flex-1 justify-center">
-            <BookOpen className="w-5 h-5 text-blue-500" />
+            <BookOpen className="w-5 h-5 text-indigo-500" />
             <h1 className="text-lg font-bold text-gray-800">{title}</h1>
           </div>
 
@@ -60,9 +60,9 @@ export default function Header({
               />
             )}
             <Bell className="w-5 h-5 text-gray-600" />
-            <div className="p-[2px] rounded-full bg-gradient-to-br from-purple-400 to-pink-500">
+            <div className="p-[2px] rounded-full bg-gradient-to-br from-indigo-400 to-purple-500">
               <div className="bg-white rounded-full p-1">
-                <User className="w-4 h-4 text-purple-600" />
+                <User className="w-4 h-4 text-indigo-600" />
               </div>
             </div>
           </div>
