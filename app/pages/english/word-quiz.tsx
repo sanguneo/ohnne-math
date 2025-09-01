@@ -45,20 +45,15 @@ export default function WordQuizPage() {
 
     const loadQuiz = async () => {
       try {
-        const listRes = await fetch(`${baseUrl}/word-quiz-list`);
+        const listRes = await fetch(`${baseUrl}/word-quiz/list`);
         if (!listRes.ok) return;
-        const listData = (await listRes.json()) as
-          | { items: { date: string }[] }
-          | { date: string }[];
-        const listItems = Array.isArray(listData)
-          ? listData
-          : listData.items;
+        const listData = (await listRes.json())
+        const listItems = listData.items
         if (!listItems || listItems.length === 0) return;
         const latest = listItems.reduce((prev, cur) =>
-          new Date(cur.date) > new Date(prev.date) ? cur : prev
+          new Date(cur) > new Date(prev) ? cur : prev
         );
-        if (!latest?.date) return;
-        const latestRes = await fetch(`${baseUrl}/word-quiz/${latest.date}`);
+        const latestRes = await fetch(`${baseUrl}/word-quiz/${latest}`);
         if (!latestRes.ok) return;
         const data: QuizResponse = await latestRes.json();
         const hasItems =
