@@ -45,23 +45,6 @@ export default function WordQuizPage() {
 
     const loadQuiz = async () => {
       try {
-        const res = await fetch(`${baseUrl}/word-quiz`);
-        if (res.ok) {
-          const data: QuizResponse = await res.json();
-          const hasItems =
-            (data.synonyms && data.synonyms.length > 0) ||
-            (data.antonyms && data.antonyms.length > 0) ||
-            (data.wordpairs && data.wordpairs.length > 0);
-          if (hasItems) {
-            setupQuiz(data);
-            return;
-          }
-        }
-      } catch (e) {
-        console.error(e);
-      }
-
-      try {
         const listRes = await fetch(`${baseUrl}/word-quiz-list`);
         if (!listRes.ok) return;
         const listData = (await listRes.json()) as
@@ -70,12 +53,21 @@ export default function WordQuizPage() {
         const listItems = Array.isArray(listData)
           ? listData
           : listData.items;
-        const latest = listItems?.[0];
+        if (!listItems || listItems.length === 0) return;
+        const latest = listItems.reduce((prev, cur) =>
+          new Date(cur.date) > new Date(prev.date) ? cur : prev
+        );
         if (!latest?.date) return;
         const latestRes = await fetch(`${baseUrl}/word-quiz/${latest.date}`);
         if (!latestRes.ok) return;
         const data: QuizResponse = await latestRes.json();
-        setupQuiz(data);
+        const hasItems =
+          (data.synonyms && data.synonyms.length > 0) ||
+          (data.antonyms && data.antonyms.length > 0) ||
+          (data.wordpairs && data.wordpairs.length > 0);
+        if (hasItems) {
+          setupQuiz(data);
+        }
       } catch (e) {
         console.error(e);
       }
