@@ -32,18 +32,43 @@ export default function WordQuizPage() {
   const navigate = useNavigate();
 
   useEffect(() => {
-    fetch(`${baseUrl}/word-quiz`)
-      .then((res) => res.json())
-      .then((data: QuizResponse) => {
-        const items: QuizItem[] = [
-          ...(data.synonyms || []).map((q) => ({ ...q, kind: "synonyms" })),
-          ...(data.antonyms || []).map((q) => ({ ...q, kind: "antonyms" })),
-          ...(data.wordpairs || []).map((q) => ({ ...q, kind: "wordpairs" })),
-        ];
-        setQuiz(items);
-        setDate(data._metadata?.date || "");
-        setAnswers(Array(items.length).fill(null));
-      });
+    const setupQuiz = (data: QuizResponse) => {
+      const items: QuizItem[] = [
+        ...(data.synonyms || []).map((q) => ({ ...q, kind: "synonyms" })),
+        ...(data.antonyms || []).map((q) => ({ ...q, kind: "antonyms" })),
+        ...(data.wordpairs || []).map((q) => ({ ...q, kind: "wordpairs" })),
+      ];
+      setQuiz(items);
+      setDate(data._metadata?.date || "");
+      setAnswers(Array(items.length).fill(null));
+    };
+
+    const loadQuiz = async () => {
+      try {
+        const listRes = await fetch(`${baseUrl}/word-quiz/list`);
+        if (!listRes.ok) return;
+        const listData = (await listRes.json())
+        const listItems = listData.items
+        if (!listItems || listItems.length === 0) return;
+        const latest = listItems.reduce((prev, cur) =>
+          new Date(cur) > new Date(prev) ? cur : prev
+        );
+        const latestRes = await fetch(`${baseUrl}/word-quiz/${latest}`);
+        if (!latestRes.ok) return;
+        const data: QuizResponse = await latestRes.json();
+        const hasItems =
+          (data.synonyms && data.synonyms.length > 0) ||
+          (data.antonyms && data.antonyms.length > 0) ||
+          (data.wordpairs && data.wordpairs.length > 0);
+        if (hasItems) {
+          setupQuiz(data);
+        }
+      } catch (e) {
+        console.error(e);
+      }
+    };
+
+    void loadQuiz();
   }, []);
 
   const handleSelect = (option: number) => {
