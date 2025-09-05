@@ -2,6 +2,7 @@
 
 import { Link } from "react-router";
 import { X } from "lucide-react";
+import { Button } from "@/components/ui/button";
 
 interface NavigationDrawerProps {
   open: boolean;
@@ -12,37 +13,62 @@ export default function NavigationDrawer({ open, onClose }: NavigationDrawerProp
   return (
     <div className={`fixed inset-0 z-40 ${open ? "" : "pointer-events-none"}`}>
       <div
-        className={`absolute inset-0 bg-black/40 transition-opacity ${open ? "opacity-100" : "opacity-0"}`}
+        className={`absolute inset-0 bg-black/40 transition-opacity duration-300 ${open ? "opacity-100" : "opacity-0"}`}
         onClick={onClose}
+        aria-hidden="true"
       />
-      <nav
-        className={`absolute left-0 top-0 h-full w-64 bg-white shadow-lg transform transition-transform ${
+      <aside
+        className={`absolute left-0 top-0 h-full w-64 bg-white shadow-xl transform transition-transform duration-300 ${
           open ? "translate-x-0" : "-translate-x-full"
         }`}
+        role="dialog"
+        aria-modal="true"
       >
         <div className="p-4 space-y-4">
-          <button onClick={onClose} className="flex items-center gap-2">
-            <X className="w-5 h-5" /> Close
-          </button>
-          <ul className="space-y-2">
-            <li>
-              <Link to="/" onClick={onClose} className="block py-1">
-                Home
-              </Link>
-            </li>
-            <li>
-              <Link to="/math" onClick={onClose} className="block py-1">
-                Math
-              </Link>
-            </li>
-            <li>
-              <Link to="/english" onClick={onClose} className="block py-1">
-                English
-              </Link>
-            </li>
-          </ul>
+          <div className="flex items-center justify-between">
+            <span className="text-lg font-medium">Menu</span>
+            <Button
+              variant="ghost"
+              size="icon"
+              onClick={onClose}
+              aria-label="닫기"
+            >
+              <X className="h-5 w-5" />
+            </Button>
+          </div>
+          <nav>
+            <ul className="space-y-1">
+              <li>
+                <Link
+                  to="/"
+                  onClick={onClose}
+                  className="block rounded px-4 py-2 text-sm hover:bg-primary/10"
+                >
+                  Home
+                </Link>
+              </li>
+              <li>
+                <Link
+                  to="/math"
+                  onClick={onClose}
+                  className="block rounded px-4 py-2 text-sm hover:bg-primary/10"
+                >
+                  Math
+                </Link>
+              </li>
+              <li>
+                <Link
+                  to="/english"
+                  onClick={onClose}
+                  className="block rounded px-4 py-2 text-sm hover:bg-primary/10"
+                >
+                  English
+                </Link>
+              </li>
+            </ul>
+          </nav>
         </div>
-      </nav>
+      </aside>
     </div>
   );
 }

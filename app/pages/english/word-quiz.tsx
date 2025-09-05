@@ -47,12 +47,13 @@ export default function WordQuizPage() {
       try {
         const listRes = await fetch(`${baseUrl}/word-quiz/list`);
         if (!listRes.ok) return;
-        const listData = (await listRes.json())
-        const listItems = listData.items
-        if (!listItems || listItems.length === 0) return;
-        const latest = listItems.reduce((prev, cur) =>
-          new Date(cur) > new Date(prev) ? cur : prev
-        );
+        const listData = await listRes.json()
+        const listItems: string[] = listData.items || []
+        if (!listItems || listItems.length === 0) return
+        const latest = listItems.reduce(
+          (prev: string, cur: string) =>
+            new Date(cur) > new Date(prev) ? cur : prev
+        )
         const latestRes = await fetch(`${baseUrl}/word-quiz/${latest}`);
         if (!latestRes.ok) return;
         const data: QuizResponse = await latestRes.json();
