@@ -40,15 +40,6 @@ export default function NavigationDrawer({ open, onClose }: NavigationDrawerProp
             <ul className="space-y-2">
               <li>
                 <Link
-                  to="/"
-                  onClick={onClose}
-                  className="block rounded px-6 py-3 text-lg font-medium hover:bg-primary/10"
-                >
-                  홈
-                </Link>
-              </li>
-              <li>
-                <Link
                   to="/math"
                   onClick={onClose}
                   className="block rounded px-6 py-3 text-lg font-medium hover:bg-primary/10"
