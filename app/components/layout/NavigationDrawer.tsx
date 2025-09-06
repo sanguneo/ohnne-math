@@ -26,7 +26,7 @@ export default function NavigationDrawer({ open, onClose }: NavigationDrawerProp
       >
         <div className="p-4 space-y-4">
           <div className="flex items-center justify-between">
-            <span className="text-lg font-medium">Menu</span>
+            <span className="text-xl font-medium">메뉴</span>
             <Button
               variant="ghost"
               size="icon"
@@ -37,32 +37,32 @@ export default function NavigationDrawer({ open, onClose }: NavigationDrawerProp
             </Button>
           </div>
           <nav>
-            <ul className="space-y-1">
+            <ul className="space-y-2">
               <li>
                 <Link
                   to="/"
                   onClick={onClose}
-                  className="block rounded px-4 py-2 text-sm hover:bg-primary/10"
+                  className="block rounded px-6 py-3 text-lg font-medium hover:bg-primary/10"
                 >
-                  Home
+                  홈
                 </Link>
               </li>
               <li>
                 <Link
                   to="/math"
                   onClick={onClose}
-                  className="block rounded px-4 py-2 text-sm hover:bg-primary/10"
+                  className="block rounded px-6 py-3 text-lg font-medium hover:bg-primary/10"
                 >
-                  Math
+                  수학
                 </Link>
               </li>
               <li>
                 <Link
                   to="/english"
                   onClick={onClose}
-                  className="block rounded px-4 py-2 text-sm hover:bg-primary/10"
+                  className="block rounded px-6 py-3 text-lg font-medium hover:bg-primary/10"
                 >
-                  English
+                  영어
                 </Link>
               </li>
             </ul>

@@ -12,7 +12,7 @@ interface BackHeaderProps {
 }
 
 export default function Header({
-  title = "온느수학",
+  title = "교육놀이터",
   onBack,
   showHome = true,
   onMenu,
