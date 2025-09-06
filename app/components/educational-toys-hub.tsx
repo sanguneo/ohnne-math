@@ -188,19 +188,6 @@ export default function EducationalToysHub({ category }: EducationalToysHubProps
   return (
     <div className="min-h-screen bg-gradient-to-br from-purple-50 via-pink-50 to-yellow-50 p-4">
       <div className="max-w-6xl mx-auto">
-        {/* Header */}
-        <div className="text-center mb-8">
-          <div className="flex justify-center items-center gap-3 mb-4">
-            <Star className="w-6 h-6 sm:w-8 sm:h-8 text-yellow-500" />
-            <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-800">교육 놀이터</h1>
-            <Star className="w-6 h-6 sm:w-8 sm:h-8 text-yellow-500" />
-          </div>
-          <p className="text-lg sm:text-xl text-gray-600 mb-2">Educational Playground</p>
-          <p className="text-base sm:text-lg text-gray-500">재미있게 배우는 어린이 학습 게임</p>
-          <div className="flex justify-center mt-4">
-            <Heart className="w-6 h-6 text-red-400 animate-pulse" />
-          </div>
-        </div>
 
         {/* Toy Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">

@@ -38,17 +38,12 @@ export default function SubjectSelectionHub() {
     <div className="min-h-screen bg-gradient-to-br from-purple-50 via-pink-50 to-yellow-50 p-4">
       <div className="max-w-4xl mx-auto">
         <div className="text-center mb-8">
-          <div className="flex justify-center items-center gap-3 mb-4">
+          <div className="flex justify-center items-center gap-3 mt-8 mb-12">
             <Star className="w-6 h-6 sm:w-8 sm:h-8 text-yellow-500" />
             <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-800">
               어떤 과목을 배울까요?
             </h1>
             <Star className="w-6 h-6 sm:w-8 sm:h-8 text-yellow-500" />
-          </div>
-          <p className="text-lg sm:text-xl text-gray-600 mb-2">Choose a Subject</p>
-          <p className="text-base sm:text-lg text-gray-500">재미있는 학습을 시작해요</p>
-          <div className="flex justify-center mt-4">
-            <Heart className="w-6 h-6 text-red-400 animate-pulse" />
           </div>
         </div>
 
