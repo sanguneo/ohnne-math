@@ -1,84 +1,89 @@
 "use client";
 
 import { useNavigate } from "react-router";
-import { Card, CardContent, CardHeader, CardTitle } from "~/components/ui/card";
+import { Card, CardContent } from "~/components/ui/card";
 import { Button } from "~/components/ui/button";
-import { Calculator, BookOpen, Star, Heart } from "lucide-react";
+import { Calculator, BookOpen, Sparkles } from "lucide-react";
 
 const subjects = [
   {
     id: "math",
     title: "수학",
     subtitle: "Math",
-    description: "재미있는 수학 놀이",
+    description: "재미있는 숫자 놀이와 도형 탐험",
     icon: Calculator,
-    color: "bg-gradient-to-br from-blue-100 to-cyan-100 border-blue-300",
-    iconColor: "text-blue-600",
     path: "/math",
   },
   {
     id: "english",
     title: "영어",
     subtitle: "English",
-    description: "재미있는 영어 놀이",
+    description: "새로운 단어와 이야기 배우기",
     icon: BookOpen,
-    color: "bg-gradient-to-br from-purple-100 to-violet-100 border-purple-300",
-    iconColor: "text-purple-600",
     path: "/english",
   },
 ];
 
 export default function SubjectSelectionHub() {
   const navigate = useNavigate();
-  const handleClick = (subject: (typeof subjects)[0]) => {
-    navigate(subject.path);
-  };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-purple-50 via-pink-50 to-yellow-50 p-4">
-      <div className="max-w-4xl mx-auto">
-        <div className="text-center mb-8">
-          <div className="flex justify-center items-center gap-3 mt-8 mb-12">
-            <Star className="w-6 h-6 sm:w-8 sm:h-8 text-yellow-500" />
-            <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-800">
-              어떤 과목을 배울까요?
-            </h1>
-            <Star className="w-6 h-6 sm:w-8 sm:h-8 text-yellow-500" />
+    <div className="min-h-screen bg-background flex flex-col items-center justify-center p-6 relative overflow-hidden">
+      {/* Background Decorative Elements */}
+      <div className="absolute top-0 left-0 w-full h-96 bg-gradient-to-b from-primary/5 to-transparent -z-10" />
+      <div className="absolute -top-20 -right-20 w-96 h-96 bg-blue-100/50 rounded-full blur-3xl -z-10" />
+      <div className="absolute top-40 -left-20 w-72 h-72 bg-purple-100/50 rounded-full blur-3xl -z-10" />
+
+      <div className="max-w-5xl w-full mx-auto z-10">
+        <div className="text-center mb-12 space-y-4">
+          <div className="inline-flex items-center justify-center p-2 bg-primary/10 rounded-full mb-4">
+            <Sparkles className="w-5 h-5 text-primary mr-2" />
+            <span className="text-sm font-semibold text-primary tracking-wide uppercase">Learning Hub</span>
           </div>
+
+          <h1 className="text-4xl md:text-5xl font-extrabold text-foreground tracking-tight">
+            오늘은 무엇을 배워볼까요?
+          </h1>
+          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+            원하는 과목을 선택해서 즐거운 학습 여행을 떠나보세요.
+          </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 px-4 md:px-12">
           {subjects.map((subject) => {
             const IconComponent = subject.icon;
             return (
               <Card
                 key={subject.id}
-                className={`${subject.color} border-2 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 cursor-pointer`}
-                onClick={() => handleClick(subject)}
+                className="group relative overflow-hidden border-0 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1 bg-card/80 backdrop-blur-sm"
+                onClick={() => navigate(subject.path)}
               >
-                <CardHeader className="text-center pb-3">
-                  <div className="flex justify-center mb-3">
-                    <div className="w-16 h-16 rounded-full bg-white/80 flex items-center justify-center shadow-md">
-                      <IconComponent className={`w-8 h-8 ${subject.iconColor}`} />
-                    </div>
+                <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+
+                <CardContent className="p-8 flex flex-col items-center text-center h-full relative z-10">
+                  <div className="w-20 h-20 rounded-2xl bg-white shadow-sm flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300 ring-1 ring-black/5">
+                    <IconComponent className="w-10 h-10 text-primary" />
                   </div>
-                  <CardTitle className="text-lg font-bold text-gray-800">
+
+                  <h2 className="text-2xl font-bold text-foreground mb-2 group-hover:text-primary transition-colors">
                     {subject.title}
-                  </CardTitle>
-                  <p className="text-sm font-medium text-gray-600">{subject.subtitle}</p>
-                </CardHeader>
-                <CardContent className="pt-0">
-                  <p className="text-sm text-gray-700 text-center mb-4 min-h-[40px]">
+                  </h2>
+                  <span className="text-sm font-medium text-muted-foreground uppercase tracking-wider mb-4 block">
+                    {subject.subtitle}
+                  </span>
+
+                  <p className="text-muted-foreground mb-8 line-clamp-2">
                     {subject.description}
                   </p>
+
                   <Button
-                    className="w-full bg-white/80 text-gray-800 hover:bg-white border-2 border-gray-200 font-semibold"
+                    className="w-full mt-auto bg-primary text-primary-foreground hover:bg-primary/90 shadow-md font-semibold h-12 rounded-xl text-base"
                     onClick={(e) => {
                       e.stopPropagation();
-                      handleClick(subject);
+                      navigate(subject.path);
                     }}
                   >
-                    시작하기 Start Learning 📚
+                    시작하기
                   </Button>
                 </CardContent>
               </Card>

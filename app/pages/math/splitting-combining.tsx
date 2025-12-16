@@ -32,29 +32,15 @@ export default function SplittingCombiningApp() {
   const [score, setScore] = useState({ correct: 0, total: 0 })
   const [difficulty, setDifficulty] = useState<2 | 3 | 4>(2) // 2, 3, 4개로 나누기
 
-  function toArray(maybeArray:HTMLElement|HTMLElement[]) {
+  function toArray(maybeArray: HTMLElement | HTMLElement[]) {
     return Array.isArray(maybeArray) ? maybeArray : [maybeArray];
   }
 
-  function getCenterBottom(el:HTMLElement) {
-    const rect = el.getBoundingClientRect();
-    return {
-      x: rect.left + rect.width / 2 + window.scrollX,
-      y: rect.bottom + window.scrollY,
-    };
-  }
-
-  function getCenterTop(el:HTMLElement) {
-    const rect = el.getBoundingClientRect();
-    return {
-      x: rect.left + rect.width / 2 + window.scrollX,
-      y: rect.top + window.scrollY,
-    };
-  }
-
-  function connectElements(from: HTMLElement|HTMLElement[], to:HTMLElement|HTMLElement[], svgId: string = 'line-layer') {
+  function connectElements(from: HTMLElement | HTMLElement[], to: HTMLElement | HTMLElement[], svgId: string = 'line-layer') {
     const svg = document.getElementById(svgId);
     if (!svg) return;
+
+    const svgRect = svg.getBoundingClientRect();
 
     // 지우기
     while (svg.firstChild) {
@@ -69,16 +55,24 @@ export default function SplittingCombiningApp() {
       const fromEl = fromEls[Math.min(i, fromEls.length - 1)];
       const toEl = toEls[Math.min(i, toEls.length - 1)];
 
-      const start = getCenterBottom(fromEl);
-      const end = getCenterTop(toEl);
+      if (!fromEl || !toEl) continue;
+
+      const fromRect = fromEl.getBoundingClientRect();
+      const toRect = toEl.getBoundingClientRect();
+
+      const x1 = fromRect.left + fromRect.width / 2 - svgRect.left;
+      const y1 = fromRect.bottom - svgRect.top;
+      const x2 = toRect.left + toRect.width / 2 - svgRect.left;
+      const y2 = toRect.top - svgRect.top;
 
       const line = document.createElementNS("http://www.w3.org/2000/svg", "line");
-      line.setAttribute("x1", String(start.x));
-      line.setAttribute("y1", String(start.y));
-      line.setAttribute("x2", String(end.x));
-      line.setAttribute("y2", String(end.y));
-      line.setAttribute("stroke", "#6B7280");
-      line.setAttribute("stroke-width", "2");
+      line.setAttribute("x1", String(x1));
+      line.setAttribute("y1", String(y1));
+      line.setAttribute("x2", String(x2));
+      line.setAttribute("y2", String(y2));
+      line.setAttribute("stroke", "#94a3b8"); // slate-400
+      line.setAttribute("stroke-width", "3");
+      line.setAttribute("stroke-dasharray", "5,5"); // Dashed line for better visuals
       svg.appendChild(line);
     }
   }
@@ -88,7 +82,7 @@ export default function SplittingCombiningApp() {
     const numParts = difficulty
 
 
-    setTimeout(()=> {
+    setTimeout(() => {
       const fromEls = Array.from(document.querySelectorAll(".from")) as HTMLElement[];
       const toEls = Array.from(document.querySelectorAll(".to")) as HTMLElement[];
 
@@ -194,11 +188,10 @@ export default function SplittingCombiningApp() {
             {parts.map((part, index) => (
               <div key={index} className="text-center to">
                 <div
-                  className={`rounded-lg p-4 border-2 ${
-                    index === missingIndex
+                  className={`rounded-lg p-4 border-2 ${index === missingIndex
                       ? "bg-gray-100 border-gray-300"
                       : `${colors[index % colors.length].replace("bg-", "bg-").replace("-400", "-100")} border-${colors[index % colors.length].replace("bg-", "").replace("-400", "-300")}`
-                  }`}
+                    }`}
                 >
                   {index === missingIndex ? (
                     showResult && userAnswer !== null ? (
@@ -310,11 +303,10 @@ export default function SplittingCombiningApp() {
                     <Button
                       key={level}
                       onClick={() => setDifficulty(level as 2 | 3 | 4)}
-                      className={`px-4 py-2 sm:px-6 sm:py-3 rounded-full font-semibold text-sm sm:text-base ${
-                        difficulty === level
+                      className={`px-4 py-2 sm:px-6 sm:py-3 rounded-full font-semibold text-sm sm:text-base ${difficulty === level
                           ? "bg-blue-500 text-white"
                           : "bg-gray-200 text-gray-700 hover:bg-gray-300"
-                      }`}
+                        }`}
                     >
                       {level}개로 나누기
                     </Button>
@@ -330,7 +322,7 @@ export default function SplittingCombiningApp() {
               </Button>
             </CardContent>
           </Card>
-          ) : (
+        ) : (
           /* Problem Screen */
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {/* Question Card */}
@@ -355,11 +347,10 @@ export default function SplittingCombiningApp() {
                     <Button
                       key={number}
                       onClick={() => handleNumberSelect(number)}
-                      className={`h-12 sm:h-14 text-base sm:text-lg font-bold rounded-xl border-2 transition-all ${
-                        userAnswer === number
+                      className={`h-12 sm:h-14 text-base sm:text-lg font-bold rounded-xl border-2 transition-all ${userAnswer === number
                           ? "bg-blue-500 text-white border-blue-600 shadow-lg scale-105"
                           : "bg-white text-gray-700 border-gray-300 hover:border-blue-400 hover:bg-blue-50"
-                      }`}
+                        }`}
                     >
                       {number}
                     </Button>
@@ -379,9 +370,8 @@ export default function SplittingCombiningApp() {
                   ) : (
                     <div className="text-center">
                       <div
-                        className={`text-xl md:text-2xl font-bold mb-4 ${
-                          userAnswer === currentProblem.answer ? "text-green-600" : "text-red-600"
-                        }`}
+                        className={`text-xl md:text-2xl font-bold mb-4 ${userAnswer === currentProblem.answer ? "text-green-600" : "text-red-600"
+                          }`}
                       >
                         {userAnswer === currentProblem.answer ? (
                           <div className="flex items-center justify-center gap-2 text-base md:text-lg rounded-sm">
